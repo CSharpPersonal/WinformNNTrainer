@@ -15,11 +15,17 @@ namespace OnlineNeuralNetworkTrainer
         public MainForm()
         {
             InitializeComponent();
+            this.MainFormInitialise();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainFormInitialise()
+        {
+            this.Text = "NN Trainer v" + SystemManager.SoftwareVersion;
         }
     }
 }
