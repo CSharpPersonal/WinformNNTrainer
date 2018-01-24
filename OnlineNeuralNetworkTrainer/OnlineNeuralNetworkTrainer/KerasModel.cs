@@ -11,7 +11,7 @@ namespace OnlineNeuralNetworkTrainer
         public string Backend;
         public int NumLayers;
         public int[] NumNeuronLayers;
-        public int batch_size = 100;
+        public int batch_size = 10;
         public string optim_func = "adam";
         public string loss_func = "mape";
 
@@ -22,6 +22,15 @@ namespace OnlineNeuralNetworkTrainer
             this.Backend = backend;
             this.NumLayers = numLayers;
             this.NumNeuronLayers = numNeuronLayers;
+        }
+
+        public bool IsReadyForTraining()
+        {
+            if (this.NumLayers > 0 && Array.IndexOf(this.NumNeuronLayers,0) == -1)
+            {
+                return true;
+            }
+            return false;
         }
 
         public string GetModelBriefSummary()
@@ -45,13 +54,13 @@ namespace OnlineNeuralNetworkTrainer
         public bool ExportConfig(string path)
         {
             string outputStr = "";
-            outputStr += "Layers=" + this.NumLayers + "\n";
+            outputStr += "Layers=" + this.NumLayers + "\r\n";
             for (int i = 0; i < this.NumLayers; i++)
             {
-                outputStr += "Layer" + (i+1).ToString() + "_neurons=" + this.NumNeuronLayers[i].ToString() + "\n";
+                outputStr += "Layer" + (i+1).ToString() + "_neurons=" + this.NumNeuronLayers[i].ToString() + "\r\n";
             }
-            outputStr += "batch_size=" + this.batch_size.ToString() + "\n";
-            outputStr += "optim_func=" + this.optim_func.ToString() + "\n";
+            outputStr += "batch_size=" + this.batch_size.ToString() + "\r\n";
+            outputStr += "optim_func=" + this.optim_func.ToString() + "\r\n";
             outputStr += "loss_func=" + this.loss_func.ToString();
             try
             {

@@ -12,6 +12,7 @@ namespace OnlineNeuralNetworkTrainer
     {
         public static string SoftwareVersion = "1.0.0";
         public static KerasModel CurrentKerasModel;
+        public static KerasModel TempKerasModel = new KerasModel("TBD", "TBD", "TBD", 0,new int[] { });
 
         public static string DeleteLines(string s, int linesToRemove)
         {

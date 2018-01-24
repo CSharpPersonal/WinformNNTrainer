@@ -32,6 +32,9 @@ namespace OnlineNeuralNetworkTrainer
         private void MainFormInitialise()
         {
             this.Text = "NN Trainer v" + SystemManager.SoftwareVersion;
+            this.batchSizeDropMenu.SelectedIndex = 0;
+            this.optimFuncDropMenu.SelectedIndex = 0;
+            this.lossFuncDropMenu.SelectedIndex = 0;
         }
 
         private void load_model_btn_Click(object sender, EventArgs e)
@@ -154,6 +157,7 @@ namespace OnlineNeuralNetworkTrainer
                 }
             }
         }
+
         private void BGW_Train_onProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             TrainProgressBar.Value = e.ProgressPercentage;
@@ -180,11 +184,93 @@ namespace OnlineNeuralNetworkTrainer
             }));
             Spinner_th.Start();
         }
+
         private void StopSpinnerThread()
         {
             Spinner_th.Abort();
             left_panel.Enabled = true;
             mainTablessControl.Enabled = true;
+        }
+
+        private void applyConfigBtn_Click(object sender, EventArgs e)
+        {
+            SystemManager.TempKerasModel.batch_size = Convert.ToInt32(batchSizeDropMenu.SelectedItem.ToString());
+            SystemManager.TempKerasModel.optim_func = optimFuncDropMenu.SelectedItem.ToString();
+            SystemManager.TempKerasModel.loss_func = lossFuncDropMenu.SelectedItem.ToString();
+        }
+
+        private void ApplyNumLayerBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int numOfLayers = Convert.ToInt32(numOFLayerTB.Text);
+                if (numOfLayers < 2 || numOfLayers > 50)
+                {
+                    throw new ArgumentException("parameter cannot be out of range (2-50)","original");
+                }
+                SystemManager.TempKerasModel.NumLayers = numOfLayers;
+                SystemManager.TempKerasModel.NumNeuronLayers = new int[numOfLayers];
+                for (int i = 0; i < numOfLayers; i++)
+                {
+                    this.LayerSelectorDropMenu.Items.Add((i+1).ToString());
+                }
+                this.LayerSelectorDropMenu.SelectedIndex = 0;
+                this.ConsoleLabel.Text = "Number Of Layers Applied: " + numOfLayers.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[DEBUG] at Form1.cs, in ApplyNumLayerBtn_Click() error input number: " + ex.Message);
+                MessageBox.Show("Please input an integer ranged between (2 - 50)");
+            }
+        }
+
+        private void ApplyNumNeuronsBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedLayer = this.LayerSelectorDropMenu.SelectedIndex;
+                int numOfNeurons = Convert.ToInt32(neuronsTB.Text);
+                if (numOfNeurons < 2 || numOfNeurons > 50)
+                {
+                    throw new ArgumentException("parameter cannot be out of range (2-50)", "original");
+                }
+                SystemManager.TempKerasModel.NumNeuronLayers[selectedLayer] = numOfNeurons;
+                this.ConsoleLabel.Text = "Number Of Neurons for Layer " +  selectedLayer.ToString() + 
+                    " Applied: " + numOfNeurons.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[DEBUG] at Form1.cs, in ApplyNumNeuronsBtn_Click() error input number: " + ex.Message);
+                MessageBox.Show("Please input an integer ranged between (2 - 50)");
+            }
+        }
+
+        private void loadHistorySettingBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "JSON model files (*model*.json)|*model*.json";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string modelFileName = ofd.FileName;
+                JSONReader jr = new JSONReader() { };
+                SystemManager.CurrentKerasModel = jr.ReadArchitectureFromJsonFile(modelFileName);
+                string txt = SystemManager.CurrentKerasModel.GetModelBriefSummary();
+                this.ConsoleLabel.Text = txt;
+            }
+        }
+
+        private void ApplyAllSettingBtn_Click(object sender, EventArgs e)
+        {
+            if (SystemManager.TempKerasModel.IsReadyForTraining())
+            {
+                SystemManager.CurrentKerasModel = SystemManager.TempKerasModel;
+                string txt = SystemManager.CurrentKerasModel.GetModelBriefSummary();
+                this.ConsoleLabel.Text = txt;
+            }
+            else
+            {
+                MessageBox.Show("Model configuration not ready");
+            }
         }
     }
 }
