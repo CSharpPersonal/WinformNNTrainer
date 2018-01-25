@@ -62,6 +62,18 @@ namespace OnlineNeuralNetworkTrainer
                 JSONReader jr = new JSONReader() { };
                 SystemManager.CurrentKerasModel = jr.ReadArchitectureFromJsonFile(modelFileName);
                 string txt = SystemManager.CurrentKerasModel.GetModelBriefSummary();
+                string weightFileName = modelFileName.Replace("model","weight");
+                if (File.Exists(weightFileName))
+                {
+                    double[] weights = jr.ReadWeightsFromJsonFile(weightFileName);
+                    SystemManager.CurrentKerasModel.weightsLongArray = weights;
+                    SystemManager.CurrentKerasModel.ExpandWeightsLongArray();
+                    txt += "Weight File Loaded\n";
+                }
+                else
+                {
+                    txt += "Weight File Not Found\n";
+                }
                 this.ConsoleLabel.Text = txt;
             }
         }
