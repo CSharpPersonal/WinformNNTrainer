@@ -1,0 +1,6 @@
+Layers=2
+Layer1_neurons=10
+Layer2_neurons=10
+batch_size=100
+optim_func=adam
+loss_func=mape
