@@ -284,5 +284,57 @@ namespace OnlineNeuralNetworkTrainer
                 MessageBox.Show("Model configuration not ready");
             }
         }
+
+        private void predictBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //TODO: input limited to 5 in this demo, adjust in future
+                double[] inputsArray = new double[5];
+                inputsArray[0] = Convert.ToDouble(feature1TB.Text);
+                inputsArray[1] = Convert.ToDouble(feature2TB.Text);
+                inputsArray[2] = Convert.ToDouble(feature3TB.Text);
+                inputsArray[3] = Convert.ToDouble(feature4TB.Text);
+                inputsArray[4] = Convert.ToDouble(feature5TB.Text);
+                double result = SystemManager.CurrentKerasModel.Predict(inputsArray);
+                this.ConsoleLabel.Text = "Prediction: Output = " + result.ToString("0.##");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[DEBUG] at Form1.cs, in predictBtn_Click ex: " + ex.Message);
+                MessageBox.Show("ERROR occurs when preforming prediction, please check if the model is loaded and all inputs are valid");
+            }
+        }
+
+        private void csvExportBtn_Click(object sender, EventArgs e)
+        {
+            SystemManager.dbm.ExportToCSV();
+        }
+
+        private void saveDataBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //TODO: input limited to 5 in this demo, adjust in future
+                double[] inputsArray = new double[5];
+                inputsArray[0] = Convert.ToDouble(feature1TB.Text);
+                inputsArray[1] = Convert.ToDouble(feature2TB.Text);
+                inputsArray[2] = Convert.ToDouble(feature3TB.Text);
+                inputsArray[3] = Convert.ToDouble(feature4TB.Text);
+                inputsArray[4] = Convert.ToDouble(feature5TB.Text);
+                SystemManager.dbm.AddToDB(inputsArray);
+                this.ConsoleLabel.Text = "add data success";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[DEBUG] at Form1.cs, in saveDataBtn_Click ex: " + ex.Message);
+                MessageBox.Show("ERROR occurs when saving data, please check if all inputs are valid");
+            }
+        }
+
+        private void sqlSelectBtn_Click(object sender, EventArgs e)
+        {
+            //TO BE IMPLEMENTED
+        }
     }
 }

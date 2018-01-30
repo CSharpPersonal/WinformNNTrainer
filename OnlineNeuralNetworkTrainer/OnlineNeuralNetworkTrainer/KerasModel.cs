@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows.Forms;
+using ApplyKerasModule;
+using System.Linq;
 
 namespace OnlineNeuralNetworkTrainer
 {
@@ -145,6 +146,22 @@ namespace OnlineNeuralNetworkTrainer
             bTemp = new double[1, 1];
             bTemp[0, 0] = this.weightsLongArray[cursor];
             this.weights.Add(bTemp);
+        }
+
+        public double Predict(double[] inputsArray)
+        {
+            double result = 0;
+            if (this.weightsLongArray == null || this.NumNeuronLayers == null)
+            {
+                throw new ArgumentNullException("null reference when wrapping a nonull value");
+            }
+            else
+            {
+                ApplyKerasModule.ApplyKerasModule akm = new ApplyKerasModule.ApplyKerasModule();
+                result = akm.GetPrediction(inputsArray, weightsLongArray, NumNeuronLayers.Select(Convert.ToDouble).ToArray());
+            }
+            return result;
+
         }
     }
 }

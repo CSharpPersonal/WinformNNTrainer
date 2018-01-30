@@ -28,19 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.main_panel = new System.Windows.Forms.Panel();
             this.right_panel = new System.Windows.Forms.Panel();
             this.ConsoleLabel = new System.Windows.Forms.Label();
+            this.BGW_Train = new System.ComponentModel.BackgroundWorker();
             this.left_panel = new System.Windows.Forms.Panel();
             this.ConfigModelBtn = new System.Windows.Forms.Button();
             this.inputDataBtn = new System.Windows.Forms.Button();
             this.loadModelBtn = new System.Windows.Forms.Button();
             this.logo_pb = new System.Windows.Forms.PictureBox();
-            this.BGW_Train = new System.ComponentModel.BackgroundWorker();
             this.mainTablessControl = new TablessControl();
             this.LoadModel = new System.Windows.Forms.TabPage();
             this.selectHistoryModelBtn = new System.Windows.Forms.Button();
             this.AddData = new System.Windows.Forms.TabPage();
+            this.DataBaseGB = new System.Windows.Forms.GroupBox();
+            this.csvExportBtn = new System.Windows.Forms.Button();
+            this.sqlSelectBtn = new System.Windows.Forms.Button();
+            this.dataStructGB = new System.Windows.Forms.GroupBox();
+            this.feature5lbl = new System.Windows.Forms.Label();
+            this.feature4lbl = new System.Windows.Forms.Label();
+            this.feature3lbl = new System.Windows.Forms.Label();
+            this.feature2lbl = new System.Windows.Forms.Label();
+            this.feature1lbl = new System.Windows.Forms.Label();
+            this.feature5TB = new System.Windows.Forms.TextBox();
+            this.feature4TB = new System.Windows.Forms.TextBox();
+            this.feature3TB = new System.Windows.Forms.TextBox();
+            this.feature2TB = new System.Windows.Forms.TextBox();
+            this.feature1TB = new System.Windows.Forms.TextBox();
+            this.ad_ds_botpanel = new System.Windows.Forms.Panel();
+            this.saveDataBtn = new System.Windows.Forms.Button();
+            this.predictBtn = new System.Windows.Forms.Button();
             this.ConfigModel = new System.Windows.Forms.TabPage();
             this.loadHistorySettingBtn = new System.Windows.Forms.Button();
             this.ApplyAllSettingBtn = new System.Windows.Forms.Button();
@@ -64,12 +82,18 @@
             this.trainFuncPanel = new System.Windows.Forms.Panel();
             this.trainModelBtn = new System.Windows.Forms.Button();
             this.TrainProgressBar = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.main_panel.SuspendLayout();
             this.right_panel.SuspendLayout();
             this.left_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.mainTablessControl.SuspendLayout();
             this.LoadModel.SuspendLayout();
+            this.AddData.SuspendLayout();
+            this.DataBaseGB.SuspendLayout();
+            this.dataStructGB.SuspendLayout();
+            this.ad_ds_botpanel.SuspendLayout();
             this.ConfigModel.SuspendLayout();
             this.trainConfigGB.SuspendLayout();
             this.netArchitechGB.SuspendLayout();
@@ -109,6 +133,13 @@
             this.ConsoleLabel.TabIndex = 1;
             this.ConsoleLabel.Text = "Console";
             // 
+            // BGW_Train
+            // 
+            this.BGW_Train.WorkerReportsProgress = true;
+            this.BGW_Train.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_Train_DoWork);
+            this.BGW_Train.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_Train_onProgressChanged);
+            this.BGW_Train.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
+            // 
             // left_panel
             // 
             this.left_panel.BackgroundImage = global::OnlineNeuralNetworkTrainer.Properties.Resources.left_panel_bgi;
@@ -147,7 +178,7 @@
             this.inputDataBtn.Name = "inputDataBtn";
             this.inputDataBtn.Size = new System.Drawing.Size(160, 26);
             this.inputDataBtn.TabIndex = 2;
-            this.inputDataBtn.Text = "Input Data";
+            this.inputDataBtn.Text = "Add Data";
             this.inputDataBtn.UseVisualStyleBackColor = false;
             this.inputDataBtn.Click += new System.EventHandler(this.inputDataBtn_Click);
             // 
@@ -168,19 +199,15 @@
             // logo_pb
             // 
             this.logo_pb.BackColor = System.Drawing.Color.Transparent;
+            this.logo_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.logo_pb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logo_pb.Image = global::OnlineNeuralNetworkTrainer.Properties.Resources.sample_logo;
             this.logo_pb.Location = new System.Drawing.Point(0, 0);
             this.logo_pb.Name = "logo_pb";
-            this.logo_pb.Size = new System.Drawing.Size(170, 64);
+            this.logo_pb.Size = new System.Drawing.Size(170, 65);
+            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo_pb.TabIndex = 0;
             this.logo_pb.TabStop = false;
-            // 
-            // BGW_Train
-            // 
-            this.BGW_Train.WorkerReportsProgress = true;
-            this.BGW_Train.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_Train_DoWork);
-            this.BGW_Train.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_Train_onProgressChanged);
-            this.BGW_Train.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
             // 
             // mainTablessControl
             // 
@@ -196,6 +223,8 @@
             // 
             // LoadModel
             // 
+            this.LoadModel.Controls.Add(this.zedGraphControl1);
+            this.LoadModel.Controls.Add(this.button1);
             this.LoadModel.Controls.Add(this.selectHistoryModelBtn);
             this.LoadModel.Location = new System.Drawing.Point(4, 22);
             this.LoadModel.Name = "LoadModel";
@@ -213,14 +242,16 @@
             this.selectHistoryModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.selectHistoryModelBtn.Location = new System.Drawing.Point(6, 6);
             this.selectHistoryModelBtn.Name = "selectHistoryModelBtn";
-            this.selectHistoryModelBtn.Size = new System.Drawing.Size(160, 26);
+            this.selectHistoryModelBtn.Size = new System.Drawing.Size(188, 26);
             this.selectHistoryModelBtn.TabIndex = 2;
-            this.selectHistoryModelBtn.Text = "Select History Model";
+            this.selectHistoryModelBtn.Text = "Load Model From History";
             this.selectHistoryModelBtn.UseVisualStyleBackColor = false;
             this.selectHistoryModelBtn.Click += new System.EventHandler(this.selectHistoryModelBtn_Click);
             // 
             // AddData
             // 
+            this.AddData.Controls.Add(this.DataBaseGB);
+            this.AddData.Controls.Add(this.dataStructGB);
             this.AddData.Location = new System.Drawing.Point(4, 22);
             this.AddData.Name = "AddData";
             this.AddData.Padding = new System.Windows.Forms.Padding(3);
@@ -228,6 +259,195 @@
             this.AddData.TabIndex = 1;
             this.AddData.Text = "Add Data";
             this.AddData.UseVisualStyleBackColor = true;
+            // 
+            // DataBaseGB
+            // 
+            this.DataBaseGB.Controls.Add(this.csvExportBtn);
+            this.DataBaseGB.Controls.Add(this.sqlSelectBtn);
+            this.DataBaseGB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DataBaseGB.Location = new System.Drawing.Point(3, 152);
+            this.DataBaseGB.Name = "DataBaseGB";
+            this.DataBaseGB.Size = new System.Drawing.Size(486, 138);
+            this.DataBaseGB.TabIndex = 1;
+            this.DataBaseGB.TabStop = false;
+            this.DataBaseGB.Text = "Data Base";
+            // 
+            // csvExportBtn
+            // 
+            this.csvExportBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.csvExportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.csvExportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.csvExportBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.csvExportBtn.Location = new System.Drawing.Point(146, 54);
+            this.csvExportBtn.Name = "csvExportBtn";
+            this.csvExportBtn.Size = new System.Drawing.Size(184, 26);
+            this.csvExportBtn.TabIndex = 10;
+            this.csvExportBtn.Text = "Export Selection";
+            this.csvExportBtn.UseVisualStyleBackColor = false;
+            this.csvExportBtn.Click += new System.EventHandler(this.csvExportBtn_Click);
+            // 
+            // sqlSelectBtn
+            // 
+            this.sqlSelectBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.sqlSelectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sqlSelectBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sqlSelectBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.sqlSelectBtn.Location = new System.Drawing.Point(146, 22);
+            this.sqlSelectBtn.Name = "sqlSelectBtn";
+            this.sqlSelectBtn.Size = new System.Drawing.Size(184, 26);
+            this.sqlSelectBtn.TabIndex = 9;
+            this.sqlSelectBtn.Text = "Select Data";
+            this.sqlSelectBtn.UseVisualStyleBackColor = false;
+            this.sqlSelectBtn.Click += new System.EventHandler(this.sqlSelectBtn_Click);
+            // 
+            // dataStructGB
+            // 
+            this.dataStructGB.Controls.Add(this.feature5lbl);
+            this.dataStructGB.Controls.Add(this.feature4lbl);
+            this.dataStructGB.Controls.Add(this.feature3lbl);
+            this.dataStructGB.Controls.Add(this.feature2lbl);
+            this.dataStructGB.Controls.Add(this.feature1lbl);
+            this.dataStructGB.Controls.Add(this.feature5TB);
+            this.dataStructGB.Controls.Add(this.feature4TB);
+            this.dataStructGB.Controls.Add(this.feature3TB);
+            this.dataStructGB.Controls.Add(this.feature2TB);
+            this.dataStructGB.Controls.Add(this.feature1TB);
+            this.dataStructGB.Controls.Add(this.ad_ds_botpanel);
+            this.dataStructGB.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataStructGB.Location = new System.Drawing.Point(3, 3);
+            this.dataStructGB.Name = "dataStructGB";
+            this.dataStructGB.Size = new System.Drawing.Size(486, 165);
+            this.dataStructGB.TabIndex = 0;
+            this.dataStructGB.TabStop = false;
+            this.dataStructGB.Text = "Data Structure";
+            // 
+            // feature5lbl
+            // 
+            this.feature5lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature5lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.feature5lbl.Location = new System.Drawing.Point(405, 26);
+            this.feature5lbl.Name = "feature5lbl";
+            this.feature5lbl.Size = new System.Drawing.Size(68, 17);
+            this.feature5lbl.TabIndex = 19;
+            this.feature5lbl.Text = "Feature 5";
+            this.feature5lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // feature4lbl
+            // 
+            this.feature4lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature4lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.feature4lbl.Location = new System.Drawing.Point(306, 26);
+            this.feature4lbl.Name = "feature4lbl";
+            this.feature4lbl.Size = new System.Drawing.Size(68, 17);
+            this.feature4lbl.TabIndex = 18;
+            this.feature4lbl.Text = "Feature 4";
+            this.feature4lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // feature3lbl
+            // 
+            this.feature3lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature3lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.feature3lbl.Location = new System.Drawing.Point(208, 26);
+            this.feature3lbl.Name = "feature3lbl";
+            this.feature3lbl.Size = new System.Drawing.Size(68, 17);
+            this.feature3lbl.TabIndex = 17;
+            this.feature3lbl.Text = "Feature 3";
+            this.feature3lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // feature2lbl
+            // 
+            this.feature2lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature2lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.feature2lbl.Location = new System.Drawing.Point(111, 26);
+            this.feature2lbl.Name = "feature2lbl";
+            this.feature2lbl.Size = new System.Drawing.Size(68, 17);
+            this.feature2lbl.TabIndex = 16;
+            this.feature2lbl.Text = "Feature 2";
+            this.feature2lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // feature1lbl
+            // 
+            this.feature1lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature1lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.feature1lbl.Location = new System.Drawing.Point(15, 26);
+            this.feature1lbl.Name = "feature1lbl";
+            this.feature1lbl.Size = new System.Drawing.Size(68, 17);
+            this.feature1lbl.TabIndex = 15;
+            this.feature1lbl.Text = "Feature 1";
+            this.feature1lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // feature5TB
+            // 
+            this.feature5TB.Location = new System.Drawing.Point(397, 46);
+            this.feature5TB.Name = "feature5TB";
+            this.feature5TB.Size = new System.Drawing.Size(76, 20);
+            this.feature5TB.TabIndex = 14;
+            // 
+            // feature4TB
+            // 
+            this.feature4TB.Location = new System.Drawing.Point(298, 46);
+            this.feature4TB.Name = "feature4TB";
+            this.feature4TB.Size = new System.Drawing.Size(76, 20);
+            this.feature4TB.TabIndex = 13;
+            // 
+            // feature3TB
+            // 
+            this.feature3TB.Location = new System.Drawing.Point(200, 46);
+            this.feature3TB.Name = "feature3TB";
+            this.feature3TB.Size = new System.Drawing.Size(76, 20);
+            this.feature3TB.TabIndex = 12;
+            // 
+            // feature2TB
+            // 
+            this.feature2TB.Location = new System.Drawing.Point(103, 46);
+            this.feature2TB.Name = "feature2TB";
+            this.feature2TB.Size = new System.Drawing.Size(76, 20);
+            this.feature2TB.TabIndex = 11;
+            // 
+            // feature1TB
+            // 
+            this.feature1TB.Location = new System.Drawing.Point(7, 46);
+            this.feature1TB.Name = "feature1TB";
+            this.feature1TB.Size = new System.Drawing.Size(76, 20);
+            this.feature1TB.TabIndex = 10;
+            // 
+            // ad_ds_botpanel
+            // 
+            this.ad_ds_botpanel.Controls.Add(this.saveDataBtn);
+            this.ad_ds_botpanel.Controls.Add(this.predictBtn);
+            this.ad_ds_botpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ad_ds_botpanel.Location = new System.Drawing.Point(3, 126);
+            this.ad_ds_botpanel.Name = "ad_ds_botpanel";
+            this.ad_ds_botpanel.Size = new System.Drawing.Size(480, 36);
+            this.ad_ds_botpanel.TabIndex = 9;
+            // 
+            // saveDataBtn
+            // 
+            this.saveDataBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.saveDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveDataBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.saveDataBtn.Location = new System.Drawing.Point(3, 3);
+            this.saveDataBtn.Name = "saveDataBtn";
+            this.saveDataBtn.Size = new System.Drawing.Size(208, 26);
+            this.saveDataBtn.TabIndex = 8;
+            this.saveDataBtn.Text = "Add to Data Base";
+            this.saveDataBtn.UseVisualStyleBackColor = false;
+            this.saveDataBtn.Click += new System.EventHandler(this.saveDataBtn_Click);
+            // 
+            // predictBtn
+            // 
+            this.predictBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.predictBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.predictBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.predictBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.predictBtn.Location = new System.Drawing.Point(217, 3);
+            this.predictBtn.Name = "predictBtn";
+            this.predictBtn.Size = new System.Drawing.Size(257, 26);
+            this.predictBtn.TabIndex = 7;
+            this.predictBtn.Text = "Perform Prediction With Loaded Model";
+            this.predictBtn.UseVisualStyleBackColor = false;
+            this.predictBtn.Click += new System.EventHandler(this.predictBtn_Click);
             // 
             // ConfigModel
             // 
@@ -523,6 +743,35 @@
             this.TrainProgressBar.Size = new System.Drawing.Size(320, 26);
             this.TrainProgressBar.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(200, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(284, 26);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Visualise Performance on Current Dataset";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.zedGraphControl1.Location = new System.Drawing.Point(3, 41);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.ScrollGrace = 0D;
+            this.zedGraphControl1.ScrollMaxX = 0D;
+            this.zedGraphControl1.ScrollMaxY = 0D;
+            this.zedGraphControl1.ScrollMaxY2 = 0D;
+            this.zedGraphControl1.ScrollMinX = 0D;
+            this.zedGraphControl1.ScrollMinY = 0D;
+            this.zedGraphControl1.ScrollMinY2 = 0D;
+            this.zedGraphControl1.Size = new System.Drawing.Size(486, 249);
+            this.zedGraphControl1.TabIndex = 4;
+            this.zedGraphControl1.UseExtendedPrintDialog = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,6 +788,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.mainTablessControl.ResumeLayout(false);
             this.LoadModel.ResumeLayout(false);
+            this.AddData.ResumeLayout(false);
+            this.DataBaseGB.ResumeLayout(false);
+            this.dataStructGB.ResumeLayout(false);
+            this.dataStructGB.PerformLayout();
+            this.ad_ds_botpanel.ResumeLayout(false);
             this.ConfigModel.ResumeLayout(false);
             this.trainConfigGB.ResumeLayout(false);
             this.netArchitechGB.ResumeLayout(false);
@@ -586,6 +840,25 @@
         private System.Windows.Forms.ComboBox lossFuncDropMenu;
         private System.Windows.Forms.ComboBox optimFuncDropMenu;
         private System.Windows.Forms.ComboBox batchSizeDropMenu;
+        private System.Windows.Forms.GroupBox DataBaseGB;
+        private System.Windows.Forms.GroupBox dataStructGB;
+        private System.Windows.Forms.Panel ad_ds_botpanel;
+        private System.Windows.Forms.Button saveDataBtn;
+        private System.Windows.Forms.Button predictBtn;
+        private System.Windows.Forms.Label feature5lbl;
+        private System.Windows.Forms.Label feature4lbl;
+        private System.Windows.Forms.Label feature3lbl;
+        private System.Windows.Forms.Label feature2lbl;
+        private System.Windows.Forms.Label feature1lbl;
+        private System.Windows.Forms.TextBox feature5TB;
+        private System.Windows.Forms.TextBox feature4TB;
+        private System.Windows.Forms.TextBox feature3TB;
+        private System.Windows.Forms.TextBox feature2TB;
+        private System.Windows.Forms.TextBox feature1TB;
+        private System.Windows.Forms.Button csvExportBtn;
+        private System.Windows.Forms.Button sqlSelectBtn;
+        private System.Windows.Forms.Button button1;
+        private ZedGraph.ZedGraphControl zedGraphControl1;
     }
 }
 

@@ -8,3 +8,6 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Debug\OnlineNeuralNetworkTrainer.csproj.GenerateResource.Cache
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Debug\OnlineNeuralNetworkTrainer.exe
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Debug\OnlineNeuralNetworkTrainer.pdb
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Debug\akm_x64.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Debug\akm_x64.pdb
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Debug\OnlineNeuralNetworkTrainer.SpinnerForm.resources
