@@ -35,6 +35,9 @@ namespace OnlineNeuralNetworkTrainer
             this.batchSizeDropMenu.SelectedIndex = 0;
             this.optimFuncDropMenu.SelectedIndex = 0;
             this.lossFuncDropMenu.SelectedIndex = 0;
+            string database_file = Path.GetDirectoryName(Application.ExecutablePath) + "\\data\\testdata\\data.db";
+            SystemManager.dbm.database_file = database_file;
+            SystemManager.dbm.LoadDatabase();
         }
 
         private void load_model_btn_Click(object sender, EventArgs e)
@@ -127,6 +130,7 @@ namespace OnlineNeuralNetworkTrainer
                 TrainProgressBar.Value = 0;
                 bool processStarted = process.Start();
                 StartSpinnerThread();
+                this.ConsoleLabel.Text = "Initialising Tensorflow Backend...";
                 BGW_Train.RunWorkerAsync();
             }
             catch (Exception ex)
@@ -187,6 +191,7 @@ namespace OnlineNeuralNetworkTrainer
         private void StartSpinnerThread()
         {
             left_panel.Enabled = false;
+            this.FormBorderStyle = FormBorderStyle.None;
             mainTablessControl.Enabled = false;
             Spinner_th = new Thread(new ThreadStart(delegate
             {
@@ -201,6 +206,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             Spinner_th.Abort();
             left_panel.Enabled = true;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
             mainTablessControl.Enabled = true;
         }
 
@@ -316,12 +322,13 @@ namespace OnlineNeuralNetworkTrainer
             try
             {
                 //TODO: input limited to 5 in this demo, adjust in future
-                double[] inputsArray = new double[5];
+                double[] inputsArray = new double[6];
                 inputsArray[0] = Convert.ToDouble(feature1TB.Text);
                 inputsArray[1] = Convert.ToDouble(feature2TB.Text);
                 inputsArray[2] = Convert.ToDouble(feature3TB.Text);
                 inputsArray[3] = Convert.ToDouble(feature4TB.Text);
                 inputsArray[4] = Convert.ToDouble(feature5TB.Text);
+                inputsArray[5] = Convert.ToDouble(resultTB.Text);
                 SystemManager.dbm.AddToDB(inputsArray);
                 this.ConsoleLabel.Text = "add data success";
             }
@@ -334,7 +341,34 @@ namespace OnlineNeuralNetworkTrainer
 
         private void sqlSelectBtn_Click(object sender, EventArgs e)
         {
-            //TO BE IMPLEMENTED
+            SelectDataForm sdf = new SelectDataForm();
+            sdf.ShowDialog(this);
+        }
+
+        private void BGW_import_csv_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SystemManager.dbm.ImportFromCSV(e.Argument.ToString(), sender as BackgroundWorker);
+        }
+
+        private void BGW_import_csv_onProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ConsoleLabel.Text = e.UserState.ToString();
+        }
+
+        private void BGW_import_csv_onWorkCompleted(object sender, DoWorkEventArgs e)
+        {
+            this.StopSpinnerThread();
+        }
+        private void importCSVBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "JSON model files (*.csv)|*.csv";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string csvFileName = ofd.FileName;
+                BGW_import_csv.RunWorkerAsync(csvFileName);
+                this.StartSpinnerThread();
+            }
         }
     }
 }

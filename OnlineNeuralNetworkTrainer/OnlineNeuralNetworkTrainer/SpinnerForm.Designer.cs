@@ -68,7 +68,9 @@
             this.Controls.Add(this.SpinnerPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpinnerForm";
+            this.ShowInTaskbar = false;
             this.Text = "SpinnerForm";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerPictureBox)).EndInit();
             this.ResumeLayout(false);
 
