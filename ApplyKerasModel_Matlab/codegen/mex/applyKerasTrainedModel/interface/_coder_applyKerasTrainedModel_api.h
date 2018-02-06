@@ -21,8 +21,8 @@
 #include "applyKerasTrainedModel_types.h"
 
 /* Function Declarations */
-extern void applyKerasTrainedModel_api(const mxArray * const prhs[3], const
-  mxArray *plhs[1]);
+extern void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray
+  *plhs[1]);
 
 #endif
 

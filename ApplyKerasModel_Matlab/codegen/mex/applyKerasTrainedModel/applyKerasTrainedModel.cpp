@@ -16,15 +16,15 @@
 #include "applyKerasTrainedModel_data.h"
 
 /* Variable Definitions */
-static emlrtRSInfo emlrtRSI = { 17, "applyKerasTrainedModel",
+static emlrtRSInfo emlrtRSI = { 19, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m"
 };
 
-static emlrtRSInfo b_emlrtRSI = { 21, "applyKerasTrainedModel",
+static emlrtRSInfo b_emlrtRSI = { 23, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m"
 };
 
-static emlrtRSInfo c_emlrtRSI = { 25, "applyKerasTrainedModel",
+static emlrtRSInfo c_emlrtRSI = { 27, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m"
 };
 
@@ -128,109 +128,109 @@ static emlrtRTEInfo b_emlrtRTEI = { 51, 1, "reshape",
   "D:\\Derek\\program_files\\Matlab\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
 };
 
-static emlrtRTEInfo c_emlrtRTEI = { 16, 1, "applyKerasTrainedModel",
+static emlrtRTEInfo c_emlrtRTEI = { 18, 1, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m"
 };
 
-static emlrtBCInfo emlrtBCI = { -1, -1, 17, 55, "NodesArray",
+static emlrtBCInfo emlrtBCI = { -1, -1, 19, 55, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo b_emlrtBCI = { -1, -1, 17, 24, "weight",
+static emlrtBCInfo b_emlrtBCI = { -1, -1, 19, 24, "weight",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtDCInfo emlrtDCI = { 17, 24, "applyKerasTrainedModel",
+static emlrtDCInfo emlrtDCI = { 19, 24, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   1 };
 
-static emlrtBCInfo c_emlrtBCI = { -1, -1, 17, 72, "NodesArray",
+static emlrtBCInfo c_emlrtBCI = { -1, -1, 19, 72, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo d_emlrtBCI = { -1, -1, 17, 122, "NodesArray",
+static emlrtBCInfo d_emlrtBCI = { -1, -1, 19, 122, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo e_emlrtBCI = { -1, -1, 17, 151, "NodesArray",
+static emlrtBCInfo e_emlrtBCI = { -1, -1, 19, 151, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo f_emlrtBCI = { -1, -1, 17, 165, "NodesArray",
+static emlrtBCInfo f_emlrtBCI = { -1, -1, 19, 165, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtDCInfo b_emlrtDCI = { 17, 100, "applyKerasTrainedModel",
+static emlrtDCInfo b_emlrtDCI = { 19, 100, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   1 };
 
-static emlrtBCInfo g_emlrtBCI = { -1, -1, 17, 100, "weight",
+static emlrtBCInfo g_emlrtBCI = { -1, -1, 19, 100, "weight",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtECInfo emlrtECI = { -1, 17, 16, "applyKerasTrainedModel",
+static emlrtECInfo emlrtECI = { -1, 19, 16, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m"
 };
 
-static emlrtBCInfo h_emlrtBCI = { -1, -1, 18, 27, "NodesArray",
+static emlrtBCInfo h_emlrtBCI = { -1, -1, 20, 27, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo i_emlrtBCI = { -1, -1, 19, 19, "NodesArray",
+static emlrtBCInfo i_emlrtBCI = { -1, -1, 21, 19, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtDCInfo c_emlrtDCI = { 21, 28, "applyKerasTrainedModel",
+static emlrtDCInfo c_emlrtDCI = { 23, 28, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   1 };
 
-static emlrtBCInfo j_emlrtBCI = { -1, -1, 21, 28, "weight",
+static emlrtBCInfo j_emlrtBCI = { -1, -1, 23, 28, "weight",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo k_emlrtBCI = { -1, -1, 21, 84, "NodesArray",
+static emlrtBCInfo k_emlrtBCI = { -1, -1, 23, 84, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo l_emlrtBCI = { -1, -1, 21, 98, "NodesArray",
+static emlrtBCInfo l_emlrtBCI = { -1, -1, 23, 98, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtDCInfo d_emlrtDCI = { 21, 120, "applyKerasTrainedModel",
+static emlrtDCInfo d_emlrtDCI = { 23, 120, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   1 };
 
-static emlrtBCInfo m_emlrtBCI = { -1, -1, 21, 120, "weight",
+static emlrtBCInfo m_emlrtBCI = { -1, -1, 23, 120, "weight",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtECInfo b_emlrtECI = { -1, 21, 20, "applyKerasTrainedModel",
+static emlrtECInfo b_emlrtECI = { -1, 23, 20, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m"
 };
 
-static emlrtDCInfo e_emlrtDCI = { 25, 16, "applyKerasTrainedModel",
+static emlrtDCInfo e_emlrtDCI = { 27, 16, "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   1 };
 
-static emlrtBCInfo n_emlrtBCI = { -1, -1, 25, 16, "weight",
+static emlrtBCInfo n_emlrtBCI = { -1, -1, 27, 16, "weight",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo o_emlrtBCI = { -1, -1, 25, 66, "weight",
+static emlrtBCInfo o_emlrtBCI = { -1, -1, 27, 66, "weight",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
@@ -247,57 +247,57 @@ static emlrtDCInfo f_emlrtDCI = { 51, 48, "reshape",
   "D:\\Derek\\program_files\\Matlab\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m",
   4 };
 
-static emlrtBCInfo r_emlrtBCI = { -1, -1, 25, 39, "NodesArray",
+static emlrtBCInfo r_emlrtBCI = { -1, -1, 27, 39, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo s_emlrtBCI = { -1, -1, 21, 51, "NodesArray",
+static emlrtBCInfo s_emlrtBCI = { -1, -1, 23, 51, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo t_emlrtBCI = { -1, -1, 21, 67, "NodesArray",
+static emlrtBCInfo t_emlrtBCI = { -1, -1, 23, 67, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo u_emlrtBCI = { -1, -1, 21, 135, "NodesArray",
+static emlrtBCInfo u_emlrtBCI = { -1, -1, 23, 135, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo v_emlrtBCI = { -1, -1, 21, 151, "NodesArray",
+static emlrtBCInfo v_emlrtBCI = { -1, -1, 23, 151, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo w_emlrtBCI = { -1, -1, 21, 173, "NodesArray",
+static emlrtBCInfo w_emlrtBCI = { -1, -1, 23, 173, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo x_emlrtBCI = { -1, -1, 21, 189, "NodesArray",
+static emlrtBCInfo x_emlrtBCI = { -1, -1, 23, 189, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo y_emlrtBCI = { -1, -1, 21, 203, "NodesArray",
+static emlrtBCInfo y_emlrtBCI = { -1, -1, 23, 203, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo ab_emlrtBCI = { -1, -1, 22, 23, "NodesArray",
+static emlrtBCInfo ab_emlrtBCI = { -1, -1, 24, 23, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo bb_emlrtBCI = { -1, -1, 22, 39, "NodesArray",
+static emlrtBCInfo bb_emlrtBCI = { -1, -1, 24, 39, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
 
-static emlrtBCInfo cb_emlrtBCI = { -1, -1, 23, 23, "NodesArray",
+static emlrtBCInfo cb_emlrtBCI = { -1, -1, 25, 23, "NodesArray",
   "applyKerasTrainedModel",
   "D:\\Derek\\Software\\temp\\WinformNNTrainer\\ApplyKerasModel_Matlab\\applyKerasTrainedModel.m",
   0 };
@@ -475,13 +475,14 @@ static const mxArray *message(const emlrtStack *sp, const mxArray *b,
   return emlrtCallMATLABR2012b(sp, 1, &m4, 1, &pArray, "message", true, location);
 }
 
-real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
-  *test_data, const emxArray_real_T *weight, const emxArray_real_T *NodesArray)
+real_T applyKerasTrainedModel(const emlrtStack *sp, emxArray_real_T *test_data,
+  const emxArray_real_T *weight, const emxArray_real_T *NodesArray)
 {
   real_T test_results;
-  emxArray_real_T *temp;
   int32_T i0;
+  int32_T i;
   int32_T maxdimlen;
+  emxArray_real_T *temp;
   real_T alpha1;
   int32_T i1;
   real_T beta1;
@@ -489,13 +490,12 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
   int32_T i3;
   int32_T sz[2];
   emxArray_real_T *a;
-  int32_T NodesArray_idx_1;
   const mxArray *y;
   static const int32_T iv0[2] = { 1, 40 };
 
   const mxArray *m0;
   char_T cv0[40];
-  int32_T i;
+  int32_T b_i;
   static const char_T cv1[40] = { 'C', 'o', 'd', 'e', 'r', ':', 'M', 'A', 'T',
     'L', 'A', 'B', ':', 'g', 'e', 't', 'R', 'e', 's', 'h', 'a', 'p', 'e', 'D',
     'i', 'm', 's', '_', 'n', 'o', 't', 'S', 'a', 'm', 'e', 'N', 'u', 'm', 'e',
@@ -579,7 +579,6 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
   g_st.prev = &f_st;
   g_st.tls = f_st.tls;
   emlrtHeapReferenceStackEnterFcnR2012b(sp);
-  emxInit_real_T(sp, &temp, 1, &c_emlrtRTEI, true);
 
   /* -------------------------------------------------------------------------- */
   /*  [Output] = applyKerasTrainedModel(test_data,net) */
@@ -591,6 +590,20 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
   /*  based on Keras with Tensorflow, python 3.6, all activation function uses */
   /*  sigmoid (copy sigmoid.m together with this file for use elsewhere) */
   /* -------------------------------------------------------------------------- */
+  /*  below line for avoiding values < 1 in dll application which cause system */
+  /*  access violation exception */
+  i0 = test_data->size[0] * test_data->size[1];
+  test_data->size[0] = 1;
+  emxEnsureCapacity(sp, (emxArray__common *)test_data, i0, (int32_T)sizeof
+                    (real_T), &emlrtRTEI);
+  i = test_data->size[0];
+  maxdimlen = test_data->size[1];
+  maxdimlen *= i;
+  for (i0 = 0; i0 < maxdimlen; i0++) {
+    test_data->data[i0]--;
+  }
+
+  emxInit_real_T(sp, &temp, 1, &c_emlrtRTEI, true);
   i0 = temp->size[0];
   temp->size[0] = test_data->size[1];
   emxEnsureCapacity(sp, (emxArray__common *)temp, i0, (int32_T)sizeof(real_T),
@@ -681,14 +694,14 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
   a->size[1] = test_data->size[1];
   emxEnsureCapacity(&st, (emxArray__common *)a, i3, (int32_T)sizeof(real_T),
                     &b_emlrtRTEI);
-  maxdimlen = (int32_T)NodesArray->data[0];
-  NodesArray_idx_1 = test_data->size[1];
-  if (i0 == maxdimlen * NodesArray_idx_1) {
+  i = (int32_T)NodesArray->data[0];
+  maxdimlen = test_data->size[1];
+  if (i0 == i * maxdimlen) {
   } else {
     y = NULL;
     m0 = emlrtCreateCharArray(2, iv0);
-    for (i = 0; i < 40; i++) {
-      cv0[i] = cv1[i];
+    for (b_i = 0; b_i < 40; b_i++) {
+      cv0[b_i] = cv1[b_i];
     }
 
     emlrtInitCharArrayR2013a(&st, 40, m0, cv0);
@@ -711,8 +724,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     check_forloop_overflow_error(&c_st);
   }
 
-  for (maxdimlen = 0; maxdimlen + 1 <= i0; maxdimlen++) {
-    a->data[maxdimlen] = weight->data[maxdimlen];
+  for (i = 0; i + 1 <= i0; i++) {
+    a->data[i] = weight->data[i];
   }
 
   st.site = &emlrtRSI;
@@ -721,8 +734,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     if (((a->size[0] == 1) && (a->size[1] == 1)) || (temp->size[0] == 1)) {
       b_y = NULL;
       m0 = emlrtCreateCharArray(2, iv1);
-      for (i = 0; i < 45; i++) {
-        cv2[i] = cv3[i];
+      for (b_i = 0; b_i < 45; b_i++) {
+        cv2[b_i] = cv3[b_i];
       }
 
       emlrtInitCharArrayR2013a(&b_st, 45, m0, cv2);
@@ -734,8 +747,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     } else {
       c_y = NULL;
       m0 = emlrtCreateCharArray(2, iv2);
-      for (i = 0; i < 21; i++) {
-        cv4[i] = cv5[i];
+      for (b_i = 0; b_i < 21; b_i++) {
+        cv4[b_i] = cv5[b_i];
       }
 
       emlrtInitCharArrayR2013a(&b_st, 21, m0, cv4);
@@ -757,8 +770,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     maxdimlen = a->size[0];
     for (i0 = 0; i0 < maxdimlen; i0++) {
       C->data[i0] = 0.0;
-      NodesArray_idx_1 = a->size[1];
-      for (i3 = 0; i3 < NodesArray_idx_1; i3++) {
+      i = a->size[1];
+      for (i3 = 0; i3 < i; i3++) {
         C->data[i0] += a->data[i0 + a->size[0] * i3] * temp->data[i3];
       }
     }
@@ -842,14 +855,14 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
   emlrtDynamicBoundsCheckFastR2012b(1, 1, i0, (emlrtBCInfo *)&i_emlrtBCI, sp);
   cursor = (1.0 + (real_T)test_data->size[1] * NodesArray->data[0]) +
     NodesArray->data[0];
-  i = 1;
+  b_i = 1;
   emxFree_real_T(&b_C);
   emxInit_real_T(sp, &c_C, 1, &emlrtRTEI, true);
-  while (i - 1 <= NodesArray->size[1] - 2) {
+  while (b_i - 1 <= NodesArray->size[1] - 2) {
     i0 = NodesArray->size[1];
     i1 = NodesArray->size[1];
-    i2 = 1 + i;
-    alpha1 = (cursor + NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(i, 1,
+    i2 = 1 + b_i;
+    alpha1 = (cursor + NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(b_i, 1,
                i0, (emlrtBCInfo *)&s_emlrtBCI, sp) - 1] * NodesArray->
               data[emlrtDynamicBoundsCheckFastR2012b(i2, 1, i1, (emlrtBCInfo *)
                &t_emlrtBCI, sp) - 1]) - 1.0;
@@ -871,22 +884,22 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
 
     i2 = NodesArray->size[1];
     i3 = NodesArray->size[1];
-    i4 = 1 + i;
-    alpha1 = cursor + NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(i, 1,
+    i4 = 1 + b_i;
+    alpha1 = cursor + NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(b_i, 1,
       i2, (emlrtBCInfo *)&u_emlrtBCI, sp) - 1] * NodesArray->
       data[emlrtDynamicBoundsCheckFastR2012b(i4, 1, i3, (emlrtBCInfo *)
       &v_emlrtBCI, sp) - 1];
     i2 = NodesArray->size[1];
     i3 = NodesArray->size[1];
-    i4 = 1 + i;
-    maxdimlen = NodesArray->size[1];
-    NodesArray_idx_1 = 1 + i;
-    beta1 = ((cursor + NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(i, 1,
+    i4 = 1 + b_i;
+    i = NodesArray->size[1];
+    maxdimlen = 1 + b_i;
+    beta1 = ((cursor + NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(b_i, 1,
                i2, (emlrtBCInfo *)&w_emlrtBCI, sp) - 1] * NodesArray->
               data[emlrtDynamicBoundsCheckFastR2012b(i4, 1, i3, (emlrtBCInfo *)
                &x_emlrtBCI, sp) - 1]) + NodesArray->
-             data[emlrtDynamicBoundsCheckFastR2012b(NodesArray_idx_1, 1,
-              maxdimlen, (emlrtBCInfo *)&y_emlrtBCI, sp) - 1]) - 1.0;
+             data[emlrtDynamicBoundsCheckFastR2012b(maxdimlen, 1, i,
+              (emlrtBCInfo *)&y_emlrtBCI, sp) - 1]) - 1.0;
     if (alpha1 > beta1) {
       i2 = 1;
       i3 = 1;
@@ -905,21 +918,19 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
 
     st.site = &b_emlrtRSI;
     i4 = NodesArray->size[1];
-    maxdimlen = (int32_T)(2.0 + (real_T)(i - 1));
-    emlrtDynamicBoundsCheckFastR2012b(maxdimlen, 1, i4, (emlrtBCInfo *)
-      &k_emlrtBCI, &st);
+    i = (int32_T)(2.0 + (real_T)(b_i - 1));
+    emlrtDynamicBoundsCheckFastR2012b(i, 1, i4, (emlrtBCInfo *)&k_emlrtBCI, &st);
     i4 = NodesArray->size[1];
-    maxdimlen = (int32_T)((2.0 + (real_T)(i - 1)) - 1.0);
-    emlrtDynamicBoundsCheckFastR2012b(maxdimlen, 1, i4, (emlrtBCInfo *)
-      &l_emlrtBCI, &st);
+    i = (int32_T)((2.0 + (real_T)(b_i - 1)) - 1.0);
+    emlrtDynamicBoundsCheckFastR2012b(i, 1, i4, (emlrtBCInfo *)&l_emlrtBCI, &st);
     nx = i1 - i0;
     b_st.site = &d_emlrtRSI;
     c_st.site = &g_emlrtRSI;
-    eml_assert_valid_size_arg(&c_st, NodesArray->data[i]);
+    eml_assert_valid_size_arg(&c_st, NodesArray->data[b_i]);
     c_st.site = &g_emlrtRSI;
-    eml_assert_valid_size_arg(&c_st, NodesArray->data[i - 1]);
-    b_sz[0] = (int32_T)NodesArray->data[i];
-    b_sz[1] = (int32_T)NodesArray->data[i - 1];
+    eml_assert_valid_size_arg(&c_st, NodesArray->data[b_i - 1]);
+    b_sz[0] = (int32_T)NodesArray->data[b_i];
+    b_sz[1] = (int32_T)NodesArray->data[b_i - 1];
     varargin_1_idx_0 = (uint32_T)(i1 - i0);
     maxdimlen = 1;
     if (varargin_1_idx_0 > 1U) {
@@ -947,18 +958,18 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     }
 
     i4 = a->size[0] * a->size[1];
-    a->size[0] = (int32_T)NodesArray->data[i];
-    a->size[1] = (int32_T)NodesArray->data[i - 1];
+    a->size[0] = (int32_T)NodesArray->data[b_i];
+    a->size[1] = (int32_T)NodesArray->data[b_i - 1];
     emxEnsureCapacity(&st, (emxArray__common *)a, i4, (int32_T)sizeof(real_T),
                       &b_emlrtRTEI);
-    maxdimlen = (int32_T)NodesArray->data[i];
-    NodesArray_idx_1 = (int32_T)NodesArray->data[i - 1];
-    if (nx == maxdimlen * NodesArray_idx_1) {
+    i = (int32_T)NodesArray->data[b_i];
+    maxdimlen = (int32_T)NodesArray->data[b_i - 1];
+    if (nx == i * maxdimlen) {
     } else {
       d_y = NULL;
       m0 = emlrtCreateCharArray(2, iv3);
-      for (maxdimlen = 0; maxdimlen < 40; maxdimlen++) {
-        cv0[maxdimlen] = cv1[maxdimlen];
+      for (i = 0; i < 40; i++) {
+        cv0[i] = cv1[i];
       }
 
       emlrtInitCharArrayR2013a(&st, 40, m0, cv0);
@@ -981,8 +992,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
       check_forloop_overflow_error(&c_st);
     }
 
-    for (maxdimlen = -1; maxdimlen + 2 <= i1 - i0; maxdimlen++) {
-      a->data[maxdimlen + 1] = weight->data[i0 + maxdimlen];
+    for (i = -1; i + 2 <= i1 - i0; i++) {
+      a->data[i + 1] = weight->data[i0 + i];
     }
 
     st.site = &b_emlrtRSI;
@@ -991,8 +1002,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
       if (((a->size[0] == 1) && (a->size[1] == 1)) || (temp->size[0] == 1)) {
         e_y = NULL;
         m0 = emlrtCreateCharArray(2, iv4);
-        for (maxdimlen = 0; maxdimlen < 45; maxdimlen++) {
-          cv2[maxdimlen] = cv3[maxdimlen];
+        for (i = 0; i < 45; i++) {
+          cv2[i] = cv3[i];
         }
 
         emlrtInitCharArrayR2013a(&b_st, 45, m0, cv2);
@@ -1004,8 +1015,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
       } else {
         f_y = NULL;
         m0 = emlrtCreateCharArray(2, iv5);
-        for (maxdimlen = 0; maxdimlen < 21; maxdimlen++) {
-          cv4[maxdimlen] = cv5[maxdimlen];
+        for (i = 0; i < 21; i++) {
+          cv4[i] = cv5[i];
         }
 
         emlrtInitCharArrayR2013a(&b_st, 21, m0, cv4);
@@ -1025,8 +1036,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
       maxdimlen = a->size[0];
       for (i0 = 0; i0 < maxdimlen; i0++) {
         C->data[i0] = 0.0;
-        NodesArray_idx_1 = a->size[1];
-        for (i1 = 0; i1 < NodesArray_idx_1; i1++) {
+        i = a->size[1];
+        for (i1 = 0; i1 < i; i1++) {
           C->data[i0] += a->data[i0 + a->size[0] * i1] * temp->data[i1];
         }
       }
@@ -1105,16 +1116,16 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     sigmoid(sp, c_C, temp);
     i0 = NodesArray->size[1];
     i1 = NodesArray->size[1];
-    i2 = 1 + i;
-    cursor += NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(i, 1, i0,
+    i2 = 1 + b_i;
+    cursor += NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(b_i, 1, i0,
       (emlrtBCInfo *)&ab_emlrtBCI, sp) - 1] * NodesArray->
       data[emlrtDynamicBoundsCheckFastR2012b(i2, 1, i1, (emlrtBCInfo *)
       &bb_emlrtBCI, sp) - 1];
     i0 = NodesArray->size[1];
-    i1 = 1 + i;
+    i1 = 1 + b_i;
     cursor += NodesArray->data[emlrtDynamicBoundsCheckFastR2012b(i1, 1, i0,
       (emlrtBCInfo *)&cb_emlrtBCI, sp) - 1];
-    i++;
+    b_i++;
     emlrtBreakCheckFastR2012b((const volatile char_T *)
       emlrtBreakCheckR2012bFlagVar, sp);
   }
@@ -1160,8 +1171,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     if ((i1 - i0 == 1) || (temp->size[0] == 1)) {
       g_y = NULL;
       m0 = emlrtCreateCharArray(2, iv6);
-      for (i = 0; i < 45; i++) {
-        cv2[i] = cv3[i];
+      for (b_i = 0; b_i < 45; b_i++) {
+        cv2[b_i] = cv3[b_i];
       }
 
       emlrtInitCharArrayR2013a(&b_st, 45, m0, cv2);
@@ -1173,8 +1184,8 @@ real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
     } else {
       h_y = NULL;
       m0 = emlrtCreateCharArray(2, iv7);
-      for (i = 0; i < 21; i++) {
-        cv4[i] = cv5[i];
+      for (b_i = 0; b_i < 21; b_i++) {
+        cv4[b_i] = cv5[b_i];
       }
 
       emlrtInitCharArrayR2013a(&b_st, 21, m0, cv4);

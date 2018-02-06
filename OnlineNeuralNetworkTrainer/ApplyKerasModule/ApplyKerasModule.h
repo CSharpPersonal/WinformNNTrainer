@@ -30,7 +30,9 @@ namespace ApplyKerasModule {
 			emx_NodesArray = emxCreateWrapper_real_T((real_T*)test_dataptr, 1, test_data->Length);
 
 			applyKerasTrainedModel_initialize();
+			Console::WriteLine("[DEBUG] AKM initialised");
 			double result = applyKerasTrainedModel(emx_test_data, emx_weight, emx_NodesArray);
+			Console::WriteLine("[DEBUG] AKM terminated");
 			applyKerasTrainedModel_terminate();
 
 			emxDestroyArray_real_T(emx_NodesArray);

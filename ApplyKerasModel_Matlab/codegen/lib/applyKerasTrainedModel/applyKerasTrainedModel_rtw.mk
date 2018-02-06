@@ -2,7 +2,7 @@
 ## Makefile generated for MATLAB file/project 'applyKerasTrainedModel'. 
 ## 
 ## Makefile     : applyKerasTrainedModel_rtw.mk
-## Generated on : Mon Jan 29 17:19:44 2018
+## Generated on : Tue Feb 06 17:20:51 2018
 ## MATLAB Coder version: 2.6 (R2014a)
 ## 
 ## Build Info:
@@ -43,13 +43,13 @@ NODEBUG                   = 1
 ## TOOLCHAIN SPECIFICATIONS
 ###########################################################################
 
-# Toolchain Name:          Microsoft Windows SDK v7.1 | nmake (64-bit Windows)
-# Supported Version(s):    7.1
+# Toolchain Name:          Microsoft Visual C++ 2013 v12.0 | nmake (64-bit Windows)
+# Supported Version(s):    12.0
 # ToolchainInfo Version:   R2014a
 # Specification Revision:  1.0
 # 
 
-!include <ntwin32.mak>
+!include $(MATLAB_ROOT)\rtw\c\tools\vcdefs.mak
 
 
 #-------------------------------------------
@@ -68,7 +68,7 @@ NODEBUG                   = 1
 # MACROS
 #-----------
 
-MEX_OPTS_FILE       = $(MATLAB_ROOT)\bin\$(ARCH)\mexopts\mssdk71opts.bat
+MEX_OPTS_FILE       = $(MATLAB_ROOT)\bin\$(ARCH)\mexopts\msvc2013-$(ARCH).xml
 MW_EXTERNLIB_DIR    = $(MATLAB_ROOT)\extern\lib\win64\microsoft
 MW_LIB_DIR          = $(MATLAB_ROOT)\lib\win64
 MEX_ARCH            = -win64

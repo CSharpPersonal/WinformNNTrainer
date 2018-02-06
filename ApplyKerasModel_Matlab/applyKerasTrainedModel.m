@@ -9,7 +9,9 @@ function [test_results] = applyKerasTrainedModel(test_data,weight,NodesArray)
 % based on Keras with Tensorflow, python 3.6, all activation function uses
 % sigmoid (copy sigmoid.m together with this file for use elsewhere)
 %--------------------------------------------------------------------------
-
+% below line for avoiding values < 1 in dll application which cause system
+% access violation exception
+test_data = test_data - 1;
 in_size = length(test_data);
 cursor = 1;
 Layers = length(NodesArray);

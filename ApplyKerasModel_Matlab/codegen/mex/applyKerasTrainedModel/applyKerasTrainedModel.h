@@ -21,7 +21,7 @@
 #include "applyKerasTrainedModel_types.h"
 
 /* Function Declarations */
-extern real_T applyKerasTrainedModel(const emlrtStack *sp, const emxArray_real_T
+extern real_T applyKerasTrainedModel(const emlrtStack *sp, emxArray_real_T
   *test_data, const emxArray_real_T *weight, const emxArray_real_T *NodesArray);
 
 #ifdef __WATCOMC__

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace OnlineNeuralNetworkTrainer
 {
@@ -341,7 +342,8 @@ namespace OnlineNeuralNetworkTrainer
 
         private void sqlSelectBtn_Click(object sender, EventArgs e)
         {
-            SelectDataForm sdf = new SelectDataForm();
+            SelectDataForm sdf = new SelectDataForm(this);
+            this.Hide();
             sdf.ShowDialog(this);
         }
 
@@ -355,10 +357,6 @@ namespace OnlineNeuralNetworkTrainer
             ConsoleLabel.Text = e.UserState.ToString();
         }
 
-        private void BGW_import_csv_onWorkCompleted(object sender, DoWorkEventArgs e)
-        {
-            this.StopSpinnerThread();
-        }
         private void importCSVBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -369,6 +367,80 @@ namespace OnlineNeuralNetworkTrainer
                 BGW_import_csv.RunWorkerAsync(csvFileName);
                 this.StartSpinnerThread();
             }
+        }
+        public void onSDFSelectedData(bool isConfirmed)
+        {
+            if (isConfirmed)
+            {
+                int datalen = SystemManager.dbm.selectedDataLength;
+                if (datalen == 0)
+                {
+                    this.ConsoleLabel.Text = "no data is selected";
+                }
+                else
+                {
+                    this.ConsoleLabel.Text = "Selected data from data base, length: " + SystemManager.dbm.selectedDataLength.ToString();
+                }
+            }
+            else
+            {
+                this.ConsoleLabel.Text = "operation canceled";
+            }
+        }
+
+        private void visualiseBtn_Click(object sender, EventArgs e)
+        {
+            if (SystemManager.CurrentKerasModel == null)
+            {
+                MessageBox.Show("Please load a model first");
+                return;
+            }
+            if (SystemManager.dbm.selectedDataLength == 0 || SystemManager.dbm.selectedData == null)
+            {
+                MessageBox.Show("Please select data first");
+                return;
+            }
+            StartSpinnerThread();
+            BGW_visualise_data.RunWorkerAsync();
+        }
+
+        private void BGW_visualise_data_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int len = SystemManager.dbm.selectedDataLength;
+            double[] predicted_values = new double[len];
+            double[] expected_values = SystemManager.dbm.selectedData[5].ToArray();
+            double[] inputsArray = new double[5];
+            for (int i = 0; i < len; i++)
+            {
+                //add 1 to avoid system access violation error, this is then sompensated in dll
+                inputsArray = null;
+                GC.Collect();
+                inputsArray = new double[5];
+                inputsArray[0] = SystemManager.dbm.selectedData[0][i] + 1.0;
+                inputsArray[1] = SystemManager.dbm.selectedData[1][i] + 1.0;
+                inputsArray[2] = SystemManager.dbm.selectedData[2][i] + 1.0;
+                inputsArray[3] = SystemManager.dbm.selectedData[3][i] + 1.0;
+                inputsArray[4] = SystemManager.dbm.selectedData[4][i] + 1.0;
+                predicted_values[i] = SystemManager.CurrentKerasModel.Predict(inputsArray);
+            }
+            SystemManager.PMPerformaceView.data.Add(predicted_values);
+            SystemManager.PMPerformaceView.data.Add(expected_values);
+        }
+
+        private void BGW_visualise_data_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            SystemManager.PMPerformaceView.InitializeGraph(performanceView, "Predicted Values vs Expected Values", new string[] { "Predicted","Expected" });
+            int[] temp = Enumerable.Range(0, SystemManager.PMPerformaceView.data[0].Length).ToArray<int>();
+            double[] idx = Array.ConvertAll<int,double>(temp, d => (double)d);
+            SystemManager.PMPerformaceView.AddData(performanceView, idx, SystemManager.PMPerformaceView.data[0], 0);
+            SystemManager.PMPerformaceView.AddData(performanceView, idx, SystemManager.PMPerformaceView.data[1], 1);
+            performanceView.RestoreScale(performanceView.GraphPane);
+            StopSpinnerThread();
+        }
+
+        private void BGW_import_csv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.StopSpinnerThread();
         }
     }
 }

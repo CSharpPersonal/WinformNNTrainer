@@ -75,8 +75,7 @@ static const mxArray *emlrt_marshallOut(const real_T u)
   return y;
 }
 
-void applyKerasTrainedModel_api(const mxArray * const prhs[3], const mxArray
-  *plhs[1])
+void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray *plhs[1])
 {
   emxArray_real_T *test_data;
   emxArray_real_T *weight;
@@ -89,13 +88,12 @@ void applyKerasTrainedModel_api(const mxArray * const prhs[3], const mxArray
   b_emxInit_real_T(&st, &test_data, 2, &e_emlrtRTEI, true);
   b_emxInit_real_T(&st, &weight, 2, &e_emlrtRTEI, true);
   b_emxInit_real_T(&st, &NodesArray, 2, &e_emlrtRTEI, true);
+  prhs[0] = emlrtProtectR2012b(prhs[0], 0, false, -1);
 
   /* Marshall function inputs */
-  emlrt_marshallIn(&st, emlrtAlias((const mxArray *)prhs[0]), "test_data",
-                   test_data);
-  emlrt_marshallIn(&st, emlrtAlias((const mxArray *)prhs[1]), "weight", weight);
-  emlrt_marshallIn(&st, emlrtAlias((const mxArray *)prhs[2]), "NodesArray",
-                   NodesArray);
+  emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "test_data", test_data);
+  emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "weight", weight);
+  emlrt_marshallIn(&st, emlrtAlias(prhs[2]), "NodesArray", NodesArray);
 
   /* Invoke the target function */
   test_results = applyKerasTrainedModel(&st, test_data, weight, NodesArray);

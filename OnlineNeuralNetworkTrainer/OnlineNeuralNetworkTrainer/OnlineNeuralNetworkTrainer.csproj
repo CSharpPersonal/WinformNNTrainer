@@ -53,6 +53,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="akm_x64">
       <HintPath>..\x64\Debug\akm_x64.dll</HintPath>
@@ -108,6 +111,7 @@
     </Compile>
     <Compile Include="JSONReader.cs" />
     <Compile Include="KerasModel.cs" />
+    <Compile Include="PlotManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectDataForm.cs">
@@ -169,6 +173,8 @@
     <None Include="Resources\sample_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="demo_icon.ico" />
+    <Content Include="icon.ico" />
     <Content Include="License-LGPL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

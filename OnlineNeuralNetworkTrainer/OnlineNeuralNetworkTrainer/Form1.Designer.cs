@@ -32,22 +32,19 @@
             this.main_panel = new System.Windows.Forms.Panel();
             this.right_panel = new System.Windows.Forms.Panel();
             this.ConsoleLabel = new System.Windows.Forms.Label();
-            this.left_panel = new System.Windows.Forms.Panel();
-            this.ConfigModelBtn = new System.Windows.Forms.Button();
-            this.inputDataBtn = new System.Windows.Forms.Button();
-            this.loadModelBtn = new System.Windows.Forms.Button();
-            this.logo_pb = new System.Windows.Forms.PictureBox();
-            this.BGW_Train = new System.ComponentModel.BackgroundWorker();
             this.mainTablessControl = new TablessControl();
             this.LoadModel = new System.Windows.Forms.TabPage();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
-            this.button1 = new System.Windows.Forms.Button();
+            this.performanceView = new ZedGraph.ZedGraphControl();
+            this.visualiseBtn = new System.Windows.Forms.Button();
             this.selectHistoryModelBtn = new System.Windows.Forms.Button();
             this.AddData = new System.Windows.Forms.TabPage();
             this.DataBaseGB = new System.Windows.Forms.GroupBox();
+            this.importCSVBtn = new System.Windows.Forms.Button();
             this.csvExportBtn = new System.Windows.Forms.Button();
             this.sqlSelectBtn = new System.Windows.Forms.Button();
             this.dataStructGB = new System.Windows.Forms.GroupBox();
+            this.resultLbl = new System.Windows.Forms.Label();
+            this.resultTB = new System.Windows.Forms.TextBox();
             this.feature5lbl = new System.Windows.Forms.Label();
             this.feature4lbl = new System.Windows.Forms.Label();
             this.feature3lbl = new System.Windows.Forms.Label();
@@ -84,14 +81,16 @@
             this.trainFuncPanel = new System.Windows.Forms.Panel();
             this.trainModelBtn = new System.Windows.Forms.Button();
             this.TrainProgressBar = new System.Windows.Forms.ProgressBar();
-            this.resultLbl = new System.Windows.Forms.Label();
-            this.resultTB = new System.Windows.Forms.TextBox();
-            this.importCSVBtn = new System.Windows.Forms.Button();
+            this.left_panel = new System.Windows.Forms.Panel();
+            this.ConfigModelBtn = new System.Windows.Forms.Button();
+            this.inputDataBtn = new System.Windows.Forms.Button();
+            this.loadModelBtn = new System.Windows.Forms.Button();
+            this.logo_pb = new System.Windows.Forms.PictureBox();
+            this.BGW_Train = new System.ComponentModel.BackgroundWorker();
             this.BGW_import_csv = new System.ComponentModel.BackgroundWorker();
+            this.BGW_visualise_data = new System.ComponentModel.BackgroundWorker();
             this.main_panel.SuspendLayout();
             this.right_panel.SuspendLayout();
-            this.left_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.mainTablessControl.SuspendLayout();
             this.LoadModel.SuspendLayout();
             this.AddData.SuspendLayout();
@@ -102,6 +101,8 @@
             this.trainConfigGB.SuspendLayout();
             this.netArchitechGB.SuspendLayout();
             this.trainFuncPanel.SuspendLayout();
+            this.left_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // main_panel
@@ -137,82 +138,6 @@
             this.ConsoleLabel.TabIndex = 1;
             this.ConsoleLabel.Text = "Console";
             // 
-            // left_panel
-            // 
-            this.left_panel.BackgroundImage = global::OnlineNeuralNetworkTrainer.Properties.Resources.left_panel_bgi;
-            this.left_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.left_panel.Controls.Add(this.ConfigModelBtn);
-            this.left_panel.Controls.Add(this.inputDataBtn);
-            this.left_panel.Controls.Add(this.loadModelBtn);
-            this.left_panel.Controls.Add(this.logo_pb);
-            this.left_panel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.left_panel.Location = new System.Drawing.Point(0, 0);
-            this.left_panel.Name = "left_panel";
-            this.left_panel.Size = new System.Drawing.Size(170, 439);
-            this.left_panel.TabIndex = 0;
-            // 
-            // ConfigModelBtn
-            // 
-            this.ConfigModelBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.ConfigModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfigModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfigModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ConfigModelBtn.Location = new System.Drawing.Point(3, 135);
-            this.ConfigModelBtn.Name = "ConfigModelBtn";
-            this.ConfigModelBtn.Size = new System.Drawing.Size(160, 26);
-            this.ConfigModelBtn.TabIndex = 3;
-            this.ConfigModelBtn.Text = "Config Model";
-            this.ConfigModelBtn.UseVisualStyleBackColor = false;
-            this.ConfigModelBtn.Click += new System.EventHandler(this.ConfigModelBtn_Click);
-            // 
-            // inputDataBtn
-            // 
-            this.inputDataBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.inputDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inputDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputDataBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.inputDataBtn.Location = new System.Drawing.Point(4, 103);
-            this.inputDataBtn.Name = "inputDataBtn";
-            this.inputDataBtn.Size = new System.Drawing.Size(160, 26);
-            this.inputDataBtn.TabIndex = 2;
-            this.inputDataBtn.Text = "Add Data";
-            this.inputDataBtn.UseVisualStyleBackColor = false;
-            this.inputDataBtn.Click += new System.EventHandler(this.inputDataBtn_Click);
-            // 
-            // loadModelBtn
-            // 
-            this.loadModelBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.loadModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.loadModelBtn.Location = new System.Drawing.Point(4, 71);
-            this.loadModelBtn.Name = "loadModelBtn";
-            this.loadModelBtn.Size = new System.Drawing.Size(160, 26);
-            this.loadModelBtn.TabIndex = 1;
-            this.loadModelBtn.Text = "Load Model";
-            this.loadModelBtn.UseVisualStyleBackColor = false;
-            this.loadModelBtn.Click += new System.EventHandler(this.load_model_btn_Click);
-            // 
-            // logo_pb
-            // 
-            this.logo_pb.BackColor = System.Drawing.Color.Transparent;
-            this.logo_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.logo_pb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logo_pb.Image = global::OnlineNeuralNetworkTrainer.Properties.Resources.sample_logo;
-            this.logo_pb.Location = new System.Drawing.Point(0, 0);
-            this.logo_pb.Name = "logo_pb";
-            this.logo_pb.Size = new System.Drawing.Size(170, 65);
-            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo_pb.TabIndex = 0;
-            this.logo_pb.TabStop = false;
-            // 
-            // BGW_Train
-            // 
-            this.BGW_Train.WorkerReportsProgress = true;
-            this.BGW_Train.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_Train_DoWork);
-            this.BGW_Train.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_Train_onProgressChanged);
-            this.BGW_Train.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
-            // 
             // mainTablessControl
             // 
             this.mainTablessControl.Controls.Add(this.LoadModel);
@@ -227,8 +152,8 @@
             // 
             // LoadModel
             // 
-            this.LoadModel.Controls.Add(this.zedGraphControl1);
-            this.LoadModel.Controls.Add(this.button1);
+            this.LoadModel.Controls.Add(this.performanceView);
+            this.LoadModel.Controls.Add(this.visualiseBtn);
             this.LoadModel.Controls.Add(this.selectHistoryModelBtn);
             this.LoadModel.Location = new System.Drawing.Point(4, 22);
             this.LoadModel.Name = "LoadModel";
@@ -238,34 +163,35 @@
             this.LoadModel.Text = "load model";
             this.LoadModel.UseVisualStyleBackColor = true;
             // 
-            // zedGraphControl1
+            // performanceView
             // 
-            this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.zedGraphControl1.Location = new System.Drawing.Point(3, 41);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.ScrollGrace = 0D;
-            this.zedGraphControl1.ScrollMaxX = 0D;
-            this.zedGraphControl1.ScrollMaxY = 0D;
-            this.zedGraphControl1.ScrollMaxY2 = 0D;
-            this.zedGraphControl1.ScrollMinX = 0D;
-            this.zedGraphControl1.ScrollMinY = 0D;
-            this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(486, 249);
-            this.zedGraphControl1.TabIndex = 4;
-            this.zedGraphControl1.UseExtendedPrintDialog = true;
+            this.performanceView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.performanceView.Location = new System.Drawing.Point(3, 41);
+            this.performanceView.Name = "performanceView";
+            this.performanceView.ScrollGrace = 0D;
+            this.performanceView.ScrollMaxX = 0D;
+            this.performanceView.ScrollMaxY = 0D;
+            this.performanceView.ScrollMaxY2 = 0D;
+            this.performanceView.ScrollMinX = 0D;
+            this.performanceView.ScrollMinY = 0D;
+            this.performanceView.ScrollMinY2 = 0D;
+            this.performanceView.Size = new System.Drawing.Size(486, 249);
+            this.performanceView.TabIndex = 4;
+            this.performanceView.UseExtendedPrintDialog = true;
             // 
-            // button1
+            // visualiseBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkRed;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(200, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(284, 26);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Visualise Performance on Current Dataset";
-            this.button1.UseVisualStyleBackColor = false;
+            this.visualiseBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.visualiseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.visualiseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visualiseBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.visualiseBtn.Location = new System.Drawing.Point(200, 6);
+            this.visualiseBtn.Name = "visualiseBtn";
+            this.visualiseBtn.Size = new System.Drawing.Size(284, 26);
+            this.visualiseBtn.TabIndex = 3;
+            this.visualiseBtn.Text = "Visualise Performance on Current Dataset";
+            this.visualiseBtn.UseVisualStyleBackColor = false;
+            this.visualiseBtn.Click += new System.EventHandler(this.visualiseBtn_Click);
             // 
             // selectHistoryModelBtn
             // 
@@ -305,6 +231,20 @@
             this.DataBaseGB.TabIndex = 1;
             this.DataBaseGB.TabStop = false;
             this.DataBaseGB.Text = "Data Base";
+            // 
+            // importCSVBtn
+            // 
+            this.importCSVBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.importCSVBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.importCSVBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importCSVBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.importCSVBtn.Location = new System.Drawing.Point(146, 22);
+            this.importCSVBtn.Name = "importCSVBtn";
+            this.importCSVBtn.Size = new System.Drawing.Size(184, 26);
+            this.importCSVBtn.TabIndex = 11;
+            this.importCSVBtn.Text = "Import From CSV";
+            this.importCSVBtn.UseVisualStyleBackColor = false;
+            this.importCSVBtn.Click += new System.EventHandler(this.importCSVBtn_Click);
             // 
             // csvExportBtn
             // 
@@ -356,6 +296,24 @@
             this.dataStructGB.TabIndex = 0;
             this.dataStructGB.TabStop = false;
             this.dataStructGB.Text = "Data Structure";
+            // 
+            // resultLbl
+            // 
+            this.resultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.resultLbl.Location = new System.Drawing.Point(356, 78);
+            this.resultLbl.Name = "resultLbl";
+            this.resultLbl.Size = new System.Drawing.Size(117, 17);
+            this.resultLbl.TabIndex = 21;
+            this.resultLbl.Text = "Expected Result";
+            this.resultLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // resultTB
+            // 
+            this.resultTB.Location = new System.Drawing.Point(397, 98);
+            this.resultTB.Name = "resultTB";
+            this.resultTB.Size = new System.Drawing.Size(76, 20);
+            this.resultTB.TabIndex = 20;
             // 
             // feature5lbl
             // 
@@ -779,44 +737,94 @@
             this.TrainProgressBar.Size = new System.Drawing.Size(320, 26);
             this.TrainProgressBar.TabIndex = 3;
             // 
-            // resultLbl
+            // left_panel
             // 
-            this.resultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.resultLbl.Location = new System.Drawing.Point(356, 78);
-            this.resultLbl.Name = "resultLbl";
-            this.resultLbl.Size = new System.Drawing.Size(117, 17);
-            this.resultLbl.TabIndex = 21;
-            this.resultLbl.Text = "Expected Result";
-            this.resultLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.left_panel.BackgroundImage = global::OnlineNeuralNetworkTrainer.Properties.Resources.left_panel_bgi;
+            this.left_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.left_panel.Controls.Add(this.ConfigModelBtn);
+            this.left_panel.Controls.Add(this.inputDataBtn);
+            this.left_panel.Controls.Add(this.loadModelBtn);
+            this.left_panel.Controls.Add(this.logo_pb);
+            this.left_panel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.left_panel.Location = new System.Drawing.Point(0, 0);
+            this.left_panel.Name = "left_panel";
+            this.left_panel.Size = new System.Drawing.Size(170, 439);
+            this.left_panel.TabIndex = 0;
             // 
-            // resultTB
+            // ConfigModelBtn
             // 
-            this.resultTB.Location = new System.Drawing.Point(397, 98);
-            this.resultTB.Name = "resultTB";
-            this.resultTB.Size = new System.Drawing.Size(76, 20);
-            this.resultTB.TabIndex = 20;
+            this.ConfigModelBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.ConfigModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfigModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ConfigModelBtn.Location = new System.Drawing.Point(3, 135);
+            this.ConfigModelBtn.Name = "ConfigModelBtn";
+            this.ConfigModelBtn.Size = new System.Drawing.Size(160, 26);
+            this.ConfigModelBtn.TabIndex = 3;
+            this.ConfigModelBtn.Text = "Config Model";
+            this.ConfigModelBtn.UseVisualStyleBackColor = false;
+            this.ConfigModelBtn.Click += new System.EventHandler(this.ConfigModelBtn_Click);
             // 
-            // importCSVBtn
+            // inputDataBtn
             // 
-            this.importCSVBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.importCSVBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.importCSVBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importCSVBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.importCSVBtn.Location = new System.Drawing.Point(146, 22);
-            this.importCSVBtn.Name = "importCSVBtn";
-            this.importCSVBtn.Size = new System.Drawing.Size(184, 26);
-            this.importCSVBtn.TabIndex = 11;
-            this.importCSVBtn.Text = "Import From CSV";
-            this.importCSVBtn.UseVisualStyleBackColor = false;
-            this.importCSVBtn.Click += new System.EventHandler(this.importCSVBtn_Click);
+            this.inputDataBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.inputDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inputDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputDataBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.inputDataBtn.Location = new System.Drawing.Point(4, 103);
+            this.inputDataBtn.Name = "inputDataBtn";
+            this.inputDataBtn.Size = new System.Drawing.Size(160, 26);
+            this.inputDataBtn.TabIndex = 2;
+            this.inputDataBtn.Text = "Add Data";
+            this.inputDataBtn.UseVisualStyleBackColor = false;
+            this.inputDataBtn.Click += new System.EventHandler(this.inputDataBtn_Click);
+            // 
+            // loadModelBtn
+            // 
+            this.loadModelBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.loadModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.loadModelBtn.Location = new System.Drawing.Point(4, 71);
+            this.loadModelBtn.Name = "loadModelBtn";
+            this.loadModelBtn.Size = new System.Drawing.Size(160, 26);
+            this.loadModelBtn.TabIndex = 1;
+            this.loadModelBtn.Text = "Load Model";
+            this.loadModelBtn.UseVisualStyleBackColor = false;
+            this.loadModelBtn.Click += new System.EventHandler(this.load_model_btn_Click);
+            // 
+            // logo_pb
+            // 
+            this.logo_pb.BackColor = System.Drawing.Color.Transparent;
+            this.logo_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.logo_pb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logo_pb.Image = global::OnlineNeuralNetworkTrainer.Properties.Resources.sample_logo;
+            this.logo_pb.Location = new System.Drawing.Point(0, 0);
+            this.logo_pb.Name = "logo_pb";
+            this.logo_pb.Size = new System.Drawing.Size(170, 65);
+            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo_pb.TabIndex = 0;
+            this.logo_pb.TabStop = false;
+            // 
+            // BGW_Train
+            // 
+            this.BGW_Train.WorkerReportsProgress = true;
+            this.BGW_Train.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_Train_DoWork);
+            this.BGW_Train.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_Train_onProgressChanged);
+            this.BGW_Train.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
             // 
             // BGW_import_csv
             // 
             this.BGW_import_csv.WorkerReportsProgress = true;
             this.BGW_import_csv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_import_csv_DoWork);
             this.BGW_import_csv.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_import_csv_onProgressChanged);
-            this.BGW_import_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
+            this.BGW_import_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_import_csv_RunWorkerCompleted);
+            // 
+            // BGW_visualise_data
+            // 
+            this.BGW_visualise_data.WorkerReportsProgress = true;
+            this.BGW_visualise_data.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_visualise_data_DoWork);
+            this.BGW_visualise_data.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_visualise_data_RunWorkerCompleted);
             // 
             // MainForm
             // 
@@ -830,8 +838,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.main_panel.ResumeLayout(false);
             this.right_panel.ResumeLayout(false);
-            this.left_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.mainTablessControl.ResumeLayout(false);
             this.LoadModel.ResumeLayout(false);
             this.AddData.ResumeLayout(false);
@@ -844,6 +850,8 @@
             this.netArchitechGB.ResumeLayout(false);
             this.netArchitechGB.PerformLayout();
             this.trainFuncPanel.ResumeLayout(false);
+            this.left_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -903,12 +911,13 @@
         private System.Windows.Forms.TextBox feature1TB;
         private System.Windows.Forms.Button csvExportBtn;
         private System.Windows.Forms.Button sqlSelectBtn;
-        private System.Windows.Forms.Button button1;
-        private ZedGraph.ZedGraphControl zedGraphControl1;
+        private System.Windows.Forms.Button visualiseBtn;
+        private ZedGraph.ZedGraphControl performanceView;
         private System.Windows.Forms.Label resultLbl;
         private System.Windows.Forms.TextBox resultTB;
         private System.Windows.Forms.Button importCSVBtn;
         private System.ComponentModel.BackgroundWorker BGW_import_csv;
+        private System.ComponentModel.BackgroundWorker BGW_visualise_data;
     }
 }
 

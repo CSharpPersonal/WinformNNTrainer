@@ -26,3 +26,13 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.csproj.GenerateResource.Cache
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.exe
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.pdb
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\EntityFramework.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\EntityFramework.SqlServer.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\System.Data.SQLite.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\System.Data.SQLite.EF6.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\System.Data.SQLite.Linq.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\EntityFramework.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\EntityFramework.SqlServer.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\System.Data.SQLite.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.csprojResolveAssemblyReference.cache
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.SelectDataForm.resources

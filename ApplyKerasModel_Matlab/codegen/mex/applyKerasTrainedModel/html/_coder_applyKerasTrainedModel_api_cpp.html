@@ -87,44 +87,42 @@
 <a name="75"><font color="#888888 "><i>   75   </i></font></a>  <font color="#112266"><b>return</b></font> y;
 <a name="76"><font color="#888888 "><i>   76   </i></font></a><b>}</b>
 <a name="77"><font color="#888888 "><i>   77   </i></font></a>
-<a name="78"><font color="#888888 "><i>   78   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_applyKerasTrainedModel_api">applyKerasTrainedModel_api</a>(<font color="#112266"><b>const</b></font> mxArray * <font color="#112266"><b>const</b></font> prhs[3], <font color="#112266"><b>const</b></font> mxArray
-<a name="79"><font color="#888888 "><i>   79   </i></font></a>  *plhs[1])
-<a name="80"><font color="#888888 "><i>   80   </i></font></a><b>{</b>
-<a name="81"><font color="#888888 "><i>   81   </i></font></a>  emxArray_real_T *test_data;
-<a name="82"><font color="#888888 "><i>   82   </i></font></a>  emxArray_real_T *weight;
-<a name="83"><font color="#888888 "><i>   83   </i></font></a>  emxArray_real_T *NodesArray;
-<a name="84"><font color="#888888 "><i>   84   </i></font></a>  real_T test_results;
-<a name="85"><font color="#888888 "><i>   85   </i></font></a>  emlrtStack st = <b>{</b> NULL, NULL, NULL <b>}</b>;
-<a name="86"><font color="#888888 "><i>   86   </i></font></a>
-<a name="87"><font color="#888888 "><i>   87   </i></font></a>  st.tls = <a href="_coder_applyKerasTrainedModel_mex_cpp.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="_self"><font color="#1122aa">emlrtRootTLSGlobal</font></a>;
-<a name="88"><font color="#888888 "><i>   88   </i></font></a>  emlrtHeapReferenceStackEnterFcnR2012b(&amp;st);
-<a name="89"><font color="#888888 "><i>   89   </i></font></a>  b_emxInit_real_T(&amp;st, &amp;test_data, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);
-<a name="90"><font color="#888888 "><i>   90   </i></font></a>  b_emxInit_real_T(&amp;st, &amp;weight, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);
-<a name="91"><font color="#888888 "><i>   91   </i></font></a>  b_emxInit_real_T(&amp;st, &amp;NodesArray, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);
+<a name="78"><font color="#888888 "><i>   78   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_applyKerasTrainedModel_api">applyKerasTrainedModel_api</a>(<font color="#112266"><b>const</b></font> mxArray *prhs[3], <font color="#112266"><b>const</b></font> mxArray *plhs[1])
+<a name="79"><font color="#888888 "><i>   79   </i></font></a><b>{</b>
+<a name="80"><font color="#888888 "><i>   80   </i></font></a>  emxArray_real_T *test_data;
+<a name="81"><font color="#888888 "><i>   81   </i></font></a>  emxArray_real_T *weight;
+<a name="82"><font color="#888888 "><i>   82   </i></font></a>  emxArray_real_T *NodesArray;
+<a name="83"><font color="#888888 "><i>   83   </i></font></a>  real_T test_results;
+<a name="84"><font color="#888888 "><i>   84   </i></font></a>  emlrtStack st = <b>{</b> NULL, NULL, NULL <b>}</b>;
+<a name="85"><font color="#888888 "><i>   85   </i></font></a>
+<a name="86"><font color="#888888 "><i>   86   </i></font></a>  st.tls = <a href="_coder_applyKerasTrainedModel_mex_cpp.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="_self"><font color="#1122aa">emlrtRootTLSGlobal</font></a>;
+<a name="87"><font color="#888888 "><i>   87   </i></font></a>  emlrtHeapReferenceStackEnterFcnR2012b(&amp;st);
+<a name="88"><font color="#888888 "><i>   88   </i></font></a>  b_emxInit_real_T(&amp;st, &amp;test_data, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);
+<a name="89"><font color="#888888 "><i>   89   </i></font></a>  b_emxInit_real_T(&amp;st, &amp;weight, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);
+<a name="90"><font color="#888888 "><i>   90   </i></font></a>  b_emxInit_real_T(&amp;st, &amp;NodesArray, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);
+<a name="91"><font color="#888888 "><i>   91   </i></font></a>  prhs[0] = emlrtProtectR2012b(prhs[0], 0, false, -1);
 <a name="92"><font color="#888888 "><i>   92   </i></font></a>
 <a name="93"><font color="#888888 "><i>   93   </i></font></a>  <font color="#117755"><i>/* Marshall function inputs */</i></font>
-<a name="94"><font color="#888888 "><i>   94   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAlias((<font color="#112266"><b>const</b></font> mxArray *)prhs[0]), <font color="#1122ff">&quot;test_data&quot;</font>,
-<a name="95"><font color="#888888 "><i>   95   </i></font></a>                   test_data);
-<a name="96"><font color="#888888 "><i>   96   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAlias((<font color="#112266"><b>const</b></font> mxArray *)prhs[1]), <font color="#1122ff">&quot;weight&quot;</font>, weight);
-<a name="97"><font color="#888888 "><i>   97   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAlias((<font color="#112266"><b>const</b></font> mxArray *)prhs[2]), <font color="#1122ff">&quot;NodesArray&quot;</font>,
-<a name="98"><font color="#888888 "><i>   98   </i></font></a>                   NodesArray);
-<a name="99"><font color="#888888 "><i>   99   </i></font></a>
-<a name="100"><font color="#888888 "><i>  100   </i></font></a>  <font color="#117755"><i>/* Invoke the target function */</i></font>
-<a name="101"><font color="#888888 "><i>  101   </i></font></a>  test_results = applyKerasTrainedModel(&amp;st, test_data, weight, NodesArray);
-<a name="102"><font color="#888888 "><i>  102   </i></font></a>
-<a name="103"><font color="#888888 "><i>  103   </i></font></a>  <font color="#117755"><i>/* Marshall function outputs */</i></font>
-<a name="104"><font color="#888888 "><i>  104   </i></font></a>  plhs[0] = <a href="#fcn_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallOut');" target="_self"><font color="#1122aa">emlrt_marshallOut</font></a>(test_results);
-<a name="105"><font color="#888888 "><i>  105   </i></font></a>  NodesArray-&gt;canFreeData = false;
-<a name="106"><font color="#888888 "><i>  106   </i></font></a>  emxFree_real_T(&amp;NodesArray);
-<a name="107"><font color="#888888 "><i>  107   </i></font></a>  weight-&gt;canFreeData = false;
-<a name="108"><font color="#888888 "><i>  108   </i></font></a>  emxFree_real_T(&amp;weight);
-<a name="109"><font color="#888888 "><i>  109   </i></font></a>  test_data-&gt;canFreeData = false;
-<a name="110"><font color="#888888 "><i>  110   </i></font></a>  emxFree_real_T(&amp;test_data);
-<a name="111"><font color="#888888 "><i>  111   </i></font></a>  emlrtHeapReferenceStackLeaveFcnR2012b(&amp;st);
-<a name="112"><font color="#888888 "><i>  112   </i></font></a><b>}</b>
-<a name="113"><font color="#888888 "><i>  113   </i></font></a>
-<a name="114"><font color="#888888 "><i>  114   </i></font></a><font color="#117755"><i>/* End of code generation (_coder_applyKerasTrainedModel_api.cpp) */</i></font>
-<a name="115"><font color="#888888 "><i>  115   </i></font></a></pre>
+<a name="94"><font color="#888888 "><i>   94   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAlias(prhs[0]), <font color="#1122ff">&quot;test_data&quot;</font>, test_data);
+<a name="95"><font color="#888888 "><i>   95   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAlias(prhs[1]), <font color="#1122ff">&quot;weight&quot;</font>, weight);
+<a name="96"><font color="#888888 "><i>   96   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAlias(prhs[2]), <font color="#1122ff">&quot;NodesArray&quot;</font>, NodesArray);
+<a name="97"><font color="#888888 "><i>   97   </i></font></a>
+<a name="98"><font color="#888888 "><i>   98   </i></font></a>  <font color="#117755"><i>/* Invoke the target function */</i></font>
+<a name="99"><font color="#888888 "><i>   99   </i></font></a>  test_results = applyKerasTrainedModel(&amp;st, test_data, weight, NodesArray);
+<a name="100"><font color="#888888 "><i>  100   </i></font></a>
+<a name="101"><font color="#888888 "><i>  101   </i></font></a>  <font color="#117755"><i>/* Marshall function outputs */</i></font>
+<a name="102"><font color="#888888 "><i>  102   </i></font></a>  plhs[0] = <a href="#fcn_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallOut');" target="_self"><font color="#1122aa">emlrt_marshallOut</font></a>(test_results);
+<a name="103"><font color="#888888 "><i>  103   </i></font></a>  NodesArray-&gt;canFreeData = false;
+<a name="104"><font color="#888888 "><i>  104   </i></font></a>  emxFree_real_T(&amp;NodesArray);
+<a name="105"><font color="#888888 "><i>  105   </i></font></a>  weight-&gt;canFreeData = false;
+<a name="106"><font color="#888888 "><i>  106   </i></font></a>  emxFree_real_T(&amp;weight);
+<a name="107"><font color="#888888 "><i>  107   </i></font></a>  test_data-&gt;canFreeData = false;
+<a name="108"><font color="#888888 "><i>  108   </i></font></a>  emxFree_real_T(&amp;test_data);
+<a name="109"><font color="#888888 "><i>  109   </i></font></a>  emlrtHeapReferenceStackLeaveFcnR2012b(&amp;st);
+<a name="110"><font color="#888888 "><i>  110   </i></font></a><b>}</b>
+<a name="111"><font color="#888888 "><i>  111   </i></font></a>
+<a name="112"><font color="#888888 "><i>  112   </i></font></a><font color="#117755"><i>/* End of code generation (_coder_applyKerasTrainedModel_api.cpp) */</i></font>
+<a name="113"><font color="#888888 "><i>  113   </i></font></a></pre>
 </td></tr></table>
 </p>
 </body>

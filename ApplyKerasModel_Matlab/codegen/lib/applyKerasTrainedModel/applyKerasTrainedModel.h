@@ -17,7 +17,7 @@
 #include "applyKerasTrainedModel_types.h"
 
 /* Function Declarations */
-extern double applyKerasTrainedModel(const emxArray_real_T *test_data, const
+extern double applyKerasTrainedModel(emxArray_real_T *test_data, const
   emxArray_real_T *weight, const emxArray_real_T *NodesArray);
 
 #endif

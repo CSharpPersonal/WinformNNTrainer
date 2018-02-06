@@ -1,6 +1,6 @@
 @echo off
 
-call "setup_mssdk71.bat"
+call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" AMD64
 
 cd .
 

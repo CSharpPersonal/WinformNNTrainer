@@ -14,6 +14,7 @@ namespace OnlineNeuralNetworkTrainer
         public static KerasModel CurrentKerasModel;
         public static DataBaseManager dbm = new DataBaseManager();
         public static KerasModel TempKerasModel = new KerasModel("TBD", "TBD", "TBD", 0,new int[] { },0);
+        public static PlotManager PMPerformaceView = new PlotManager();
 
         public static string DeleteLines(string s, int linesToRemove)
         {
