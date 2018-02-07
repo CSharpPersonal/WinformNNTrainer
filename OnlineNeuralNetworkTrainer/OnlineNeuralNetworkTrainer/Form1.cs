@@ -315,7 +315,14 @@ namespace OnlineNeuralNetworkTrainer
 
         private void csvExportBtn_Click(object sender, EventArgs e)
         {
-            SystemManager.dbm.ExportToCSV();
+            if (SystemManager.dbm.selectedDataLength != 0)
+            {
+                this.BGW_export_csv.RunWorkerAsync();
+            }
+            else
+            {
+                MessageBox.Show("No selected data yet!");
+            }
         }
 
         private void saveDataBtn_Click(object sender, EventArgs e)
@@ -416,11 +423,11 @@ namespace OnlineNeuralNetworkTrainer
                 inputsArray = null;
                 GC.Collect();
                 inputsArray = new double[5];
-                inputsArray[0] = SystemManager.dbm.selectedData[0][i] + 1.0;
-                inputsArray[1] = SystemManager.dbm.selectedData[1][i] + 1.0;
-                inputsArray[2] = SystemManager.dbm.selectedData[2][i] + 1.0;
-                inputsArray[3] = SystemManager.dbm.selectedData[3][i] + 1.0;
-                inputsArray[4] = SystemManager.dbm.selectedData[4][i] + 1.0;
+                inputsArray[0] = SystemManager.dbm.selectedData[0][i];
+                inputsArray[1] = SystemManager.dbm.selectedData[1][i];
+                inputsArray[2] = SystemManager.dbm.selectedData[2][i];
+                inputsArray[3] = SystemManager.dbm.selectedData[3][i];
+                inputsArray[4] = SystemManager.dbm.selectedData[4][i];
                 predicted_values[i] = SystemManager.CurrentKerasModel.Predict(inputsArray);
             }
             SystemManager.PMPerformaceView.data.Add(predicted_values);
@@ -441,6 +448,25 @@ namespace OnlineNeuralNetworkTrainer
         private void BGW_import_csv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.StopSpinnerThread();
+        }
+
+        private void BGW_export_csv_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string exepath = Path.GetDirectoryName(Application.ExecutablePath);
+            string dataPath = exepath + "\\data\\testdata\\data.csv";
+            SystemManager.dbm.ExportToCSV(BGW_export_csv,dataPath);
+            this.StartSpinnerThread();
+        }
+
+        private void BGW_export_csv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ConsoleLabel.Text = "Export completed";
+            this.StopSpinnerThread();
+        }
+
+        private void BGW_export_csv_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ConsoleLabel.Text = e.UserState.ToString();
         }
     }
 }

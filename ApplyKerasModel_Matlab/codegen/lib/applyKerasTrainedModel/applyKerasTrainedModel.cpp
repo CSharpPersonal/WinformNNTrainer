@@ -12,19 +12,20 @@
 #include "applyKerasTrainedModel_emxutil.h"
 
 /* Function Definitions */
-double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T *
-  weight, const emxArray_real_T *NodesArray)
+void applyKerasTrainedModel(const emxArray_real_T *test_data, const
+  emxArray_real_T *weight, const emxArray_real_T *NodesArray, double
+  *test_results, double *output_suppressor)
 {
+  emxArray_real_T *temp;
   int i0;
   int ar;
-  int b_test_data;
-  emxArray_real_T *temp;
   double y;
   double d0;
   int i1;
   emxArray_real_T *b_y;
   int i2;
   emxArray_real_T *C;
+  int ib;
   unsigned int unnamed_idx_0;
   int ic;
   int br;
@@ -34,6 +35,7 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
   int i;
   emxArray_real_T *c_C;
   emxArray_real_T *a;
+  emxInit_real_T(&temp, 1);
 
   /* -------------------------------------------------------------------------- */
   /*  [Output] = applyKerasTrainedModel(test_data,net) */
@@ -45,19 +47,7 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
   /*  based on Keras with Tensorflow, python 3.6, all activation function uses */
   /*  sigmoid (copy sigmoid.m together with this file for use elsewhere) */
   /* -------------------------------------------------------------------------- */
-  /*  below line for avoiding values < 1 in dll application which cause system */
-  /*  access violation exception */
-  i0 = test_data->size[0] * test_data->size[1];
-  test_data->size[0] = 1;
-  emxEnsureCapacity((emxArray__common *)test_data, i0, (int)sizeof(double));
-  ar = test_data->size[0];
-  b_test_data = test_data->size[1];
-  ar *= b_test_data;
-  for (i0 = 0; i0 < ar; i0++) {
-    test_data->data[i0]--;
-  }
-
-  emxInit_real_T(&temp, 1);
+  *output_suppressor = 0.0;
   i0 = temp->size[0];
   temp->size[0] = test_data->size[1];
   emxEnsureCapacity((emxArray__common *)temp, i0, (int)sizeof(double));
@@ -99,8 +89,8 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
     ar = b_y->size[0];
     for (i0 = 0; i0 < ar; i0++) {
       C->data[i0] = 0.0;
-      b_test_data = b_y->size[1];
-      for (i2 = 0; i2 < b_test_data; i2++) {
+      ib = b_y->size[1];
+      for (i2 = 0; i2 < ib; i2++) {
         C->data[i0] += b_y->data[i0 + b_y->size[0] * i2] * temp->data[i2];
       }
     }
@@ -131,13 +121,13 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
       while (ar <= 0) {
         ar = -1;
         i0 = br + b_y->size[1];
-        for (b_test_data = br; b_test_data + 1 <= i0; b_test_data++) {
-          if (temp->data[b_test_data] != 0.0) {
+        for (ib = br; ib + 1 <= i0; ib++) {
+          if (temp->data[ib] != 0.0) {
             ia = ar;
             i2 = b_y->size[0];
             for (ic = 0; ic + 1 <= i2; ic++) {
               ia++;
-              C->data[ic] += temp->data[b_test_data] * b_y->data[ia];
+              C->data[ic] += temp->data[ib] * b_y->data[ia];
             }
           }
 
@@ -199,8 +189,8 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
       ar = b_y->size[0];
       for (i0 = 0; i0 < ar; i0++) {
         C->data[i0] = 0.0;
-        b_test_data = b_y->size[1];
-        for (i1 = 0; i1 < b_test_data; i1++) {
+        ib = b_y->size[1];
+        for (i1 = 0; i1 < ib; i1++) {
           C->data[i0] += b_y->data[i0 + b_y->size[0] * i1] * temp->data[i1];
         }
       }
@@ -231,13 +221,13 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
         while (ar <= 0) {
           ar = -1;
           i0 = br + b_y->size[1];
-          for (b_test_data = br; b_test_data + 1 <= i0; b_test_data++) {
-            if (temp->data[b_test_data] != 0.0) {
+          for (ib = br; ib + 1 <= i0; ib++) {
+            if (temp->data[ib] != 0.0) {
               ia = ar;
               i1 = b_y->size[0];
               for (ic = 0; ic + 1 <= i1; ic++) {
                 ia++;
-                C->data[ic] += temp->data[b_test_data] * b_y->data[ia];
+                C->data[ic] += temp->data[ib] * b_y->data[ia];
               }
             }
 
@@ -300,7 +290,7 @@ double applyKerasTrainedModel(emxArray_real_T *test_data, const emxArray_real_T 
 
   emxFree_real_T(&a);
   emxFree_real_T(&temp);
-  return 1.0 / (1.0 + exp(-(y + weight->data[weight->size[1] - 1])));
+  *test_results = 1.0 / (1.0 + exp(-(y + weight->data[weight->size[1] - 1])));
 }
 
 /* End of code generation (applyKerasTrainedModel.cpp) */

@@ -23,7 +23,6 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\OnlineNeuralNetworkTrainer.pdb
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Newtonsoft.Json.dll
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Newtonsoft.Json.xml
-D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.csprojResolveAssemblyReference.cache
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.MainForm.resources
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.Properties.Resources.resources
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.csproj.GenerateResource.Cache
@@ -54,3 +53,12 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\EntityFramework.SqlServer.xml
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\System.Data.SQLite.xml
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.SelectDataForm.resources
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.dll.config
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.Math.Core.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.Math.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\MathNet.Numerics.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.Math.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.Math.Core.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\MathNet.Numerics.xml

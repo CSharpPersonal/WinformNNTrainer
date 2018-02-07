@@ -12,4 +12,4 @@ Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c5619
 Class ApplyKerasModule.ApplyKerasModule: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
-    GetPrediction(Double[], Double[], Double[]): PrivateScope, Public, HideBySig
+    GetPrediction(Double[], Double[], Double[], Double[]&): PrivateScope, Public, HideBySig

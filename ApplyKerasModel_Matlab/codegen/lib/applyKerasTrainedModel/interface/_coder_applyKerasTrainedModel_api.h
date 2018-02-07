@@ -37,8 +37,8 @@ typedef struct emxArray_real_T emxArray_real_T;
 extern void applyKerasTrainedModel_initialize(emlrtContext *aContext);
 extern void applyKerasTrainedModel_terminate(void);
 extern void applyKerasTrainedModel_atexit(void);
-extern void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray *plhs[1]);
-extern double applyKerasTrainedModel(emxArray_real_T *test_data, emxArray_real_T *weight, emxArray_real_T *NodesArray);
+extern void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray *plhs[2]);
+extern void applyKerasTrainedModel(emxArray_real_T *test_data, emxArray_real_T *weight, emxArray_real_T *NodesArray, double *test_results, double *output_suppressor);
 extern void applyKerasTrainedModel_xil_terminate(void);
 
 #endif

@@ -53,11 +53,12 @@ void applyKerasTrainedModel_atexit(void)
   applyKerasTrainedModel_xil_terminate();
 }
 
-void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray *plhs[1])
+void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray *plhs[2])
 {
   emxArray_real_T *test_data;
   emxArray_real_T *weight;
   emxArray_real_T *NodesArray;
+  double output_suppressor;
   double test_results;
   emlrtStack st = { NULL, NULL, NULL };
 
@@ -76,10 +77,12 @@ void applyKerasTrainedModel_api(const mxArray *prhs[3], const mxArray *plhs[1])
   emlrt_marshallIn(&st, emlrtAlias(prhs[2]), "NodesArray", NodesArray);
 
   /* Invoke the target function */
-  test_results = applyKerasTrainedModel(test_data, weight, NodesArray);
+  applyKerasTrainedModel(test_data, weight, NodesArray, &test_results,
+    &output_suppressor);
 
   /* Marshall function outputs */
   plhs[0] = emlrt_marshallOut(test_results);
+  plhs[1] = emlrt_marshallOut(output_suppressor);
   NodesArray->canFreeData = false;
   emxFree_real_T(&NodesArray);
   weight->canFreeData = false;

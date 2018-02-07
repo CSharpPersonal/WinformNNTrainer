@@ -1610,7 +1610,7 @@ mxArray *emlrtMexFcnProperties()
   xInputs = mxCreateLogicalMatrix(1, 3);
   mxSetFieldByNumber(xEntryPoints, 0, 0, mxCreateString("applyKerasTrainedModel"));
   mxSetFieldByNumber(xEntryPoints, 0, 1, mxCreateDoubleScalar(3));
-  mxSetFieldByNumber(xEntryPoints, 0, 2, mxCreateDoubleScalar(1));
+  mxSetFieldByNumber(xEntryPoints, 0, 2, mxCreateDoubleScalar(2));
   mxSetFieldByNumber(xEntryPoints, 0, 3, xInputs);
   mxSetFieldByNumber(xResult, 0, 0, mxCreateString("8.3.0.532 (R2014a)"));
   mxSetFieldByNumber(xResult, 0, 1, (mxArray*)emlrtMexFcnResolvedFunctionsInfo());

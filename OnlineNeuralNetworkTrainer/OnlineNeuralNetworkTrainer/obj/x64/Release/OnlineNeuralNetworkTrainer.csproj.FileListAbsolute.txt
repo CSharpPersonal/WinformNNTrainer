@@ -36,3 +36,12 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\System.Data.SQLite.xml
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.csprojResolveAssemblyReference.cache
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\x64\Release\OnlineNeuralNetworkTrainer.SelectDataForm.resources
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.dll.config
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.Math.Core.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.Math.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\MathNet.Numerics.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.Math.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\Accord.Math.Core.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\x64\Release\MathNet.Numerics.xml

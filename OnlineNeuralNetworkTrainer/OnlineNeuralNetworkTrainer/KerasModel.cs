@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ApplyKerasModule;
+//using ApplyKerasModule;
+//using MathNet.Numerics.LinearAlgebra;
+//using MathNet.Numerics.LinearAlgebra.Double;
+using Accord.Math;
 using System.Linq;
 
 namespace OnlineNeuralNetworkTrainer
@@ -95,11 +98,11 @@ namespace OnlineNeuralNetworkTrainer
             int cursor = 0;
             //get initial weight
             double[,] WTemp = new double[this.InputSize, this.NumNeuronLayers[0]];
-            for (int j = 0; j < this.NumNeuronLayers[0]; j++)
+            for (int j = 0; j < this.InputSize; j++)
             {
-                for (int k = 0; k < this.InputSize; k++)
+                for (int k = 0; k < this.NumNeuronLayers[0]; k++)
                 {
-                    WTemp[k, j] = this.weightsLongArray[cursor];
+                    WTemp[j, k] = this.weightsLongArray[cursor];
                     cursor++;
                 }
             }
@@ -116,11 +119,11 @@ namespace OnlineNeuralNetworkTrainer
             {
                 //get weight
                 WTemp = new double[this.NumNeuronLayers[i-1], this.NumNeuronLayers[i]];
-                for (int j = 0; j < this.NumNeuronLayers[i]; j++)
+                for (int j = 0; j < this.NumNeuronLayers[i - 1]; j++)
                 {
-                    for (int k = 0; k < this.NumNeuronLayers[i - 1]; k++)
+                    for (int k = 0; k < this.NumNeuronLayers[i]; k++)
                     {
-                        WTemp[k, j] = this.weightsLongArray[cursor];
+                        WTemp[j,k] = this.weightsLongArray[cursor];
                         cursor++;
                     }
                 }
@@ -151,6 +154,9 @@ namespace OnlineNeuralNetworkTrainer
         public double Predict(double[] inputsArray)
         {
             double result = 0;
+            // Matlab generate library is causeing SystemViolationException - FIX later
+            /*
+            double[] resultWrapper = new double[] { };
             if (this.weightsLongArray == null || this.NumNeuronLayers == null)
             {
                 throw new ArgumentNullException("null reference when wrapping a nonull value");
@@ -158,10 +164,61 @@ namespace OnlineNeuralNetworkTrainer
             else
             {
                 ApplyKerasModule.ApplyKerasModule akm = new ApplyKerasModule.ApplyKerasModule();
-                result = akm.GetPrediction(inputsArray, weightsLongArray, NumNeuronLayers.Select(Convert.ToDouble).ToArray());
+                akm.GetPrediction(inputsArray, weightsLongArray, Array.ConvertAll<int,double>(NumNeuronLayers,d=>(double)d),ref resultWrapper);
             }
-            return result;
+            */
 
+            //C# version
+
+            double[,] inputsArrayMat = new double[inputsArray.Length,1];
+            for (int i = 0; i < inputsArray.Length; i++)
+            {
+                inputsArrayMat[i, 0] = inputsArray[i];
+            }
+            double[,] tempVar = Matrix.Dot(Transpose(weights[0]), inputsArrayMat);
+            tempVar = sigmoid(Elementwise.Add(tempVar, Transpose(weights[1])));
+            for (int i = 1; i < this.NumLayers; i++)
+            {
+                tempVar = Matrix.Dot(Transpose(weights[2*i]), tempVar);
+                tempVar = sigmoid(Elementwise.Add(tempVar, Transpose(weights[2 * i + 1])));
+            }
+            tempVar = Matrix.Dot(weights[2 * this.NumLayers], tempVar);
+            tempVar = sigmoid(Elementwise.Add(tempVar, weights[2 * this.NumLayers + 1]));
+            result = tempVar[0, 0];
+            return result;
+        }
+
+        private double sigmoid(double input)
+        {
+            double output = 0;
+            output = 1.0 / (1 + Math.Exp(-input));
+            return output;
+        }
+
+        private double[,] sigmoid(double[,] Mat)
+        {
+            double[,] MatOut = new double[Mat.GetLength(0), Mat.GetLength(1)];
+            for (int i = 0; i < Mat.GetLength(0); i++)
+            {
+                for (int j = 0; j < Mat.GetLength(1); j++)
+                {
+                    MatOut[i, j] = sigmoid(Mat[i, j]);
+                }
+            }
+            return MatOut;
+        }
+
+        private double[,] Transpose(double[,] Mat)
+        {
+            double[,] MatOut = new double[Mat.GetLength(1), Mat.GetLength(0)];
+            for (int i = 0; i < Mat.GetLength(0); i++)
+            {
+                for (int j = 0; j < Mat.GetLength(1); j++)
+                {
+                    MatOut[j, i] = Mat[i, j];
+                }
+            }
+            return MatOut;
         }
     }
 }

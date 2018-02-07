@@ -89,6 +89,7 @@
             this.BGW_Train = new System.ComponentModel.BackgroundWorker();
             this.BGW_import_csv = new System.ComponentModel.BackgroundWorker();
             this.BGW_visualise_data = new System.ComponentModel.BackgroundWorker();
+            this.BGW_export_csv = new System.ComponentModel.BackgroundWorker();
             this.main_panel.SuspendLayout();
             this.right_panel.SuspendLayout();
             this.mainTablessControl.SuspendLayout();
@@ -826,6 +827,13 @@
             this.BGW_visualise_data.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_visualise_data_DoWork);
             this.BGW_visualise_data.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_visualise_data_RunWorkerCompleted);
             // 
+            // BGW_export_csv
+            // 
+            this.BGW_export_csv.WorkerReportsProgress = true;
+            this.BGW_export_csv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_export_csv_DoWork);
+            this.BGW_export_csv.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_export_csv_ProgressChanged);
+            this.BGW_export_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_export_csv_RunWorkerCompleted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -918,6 +926,7 @@
         private System.Windows.Forms.Button importCSVBtn;
         private System.ComponentModel.BackgroundWorker BGW_import_csv;
         private System.ComponentModel.BackgroundWorker BGW_visualise_data;
+        private System.ComponentModel.BackgroundWorker BGW_export_csv;
     }
 }
 

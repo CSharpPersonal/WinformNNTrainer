@@ -1,4 +1,4 @@
-function [test_results] = applyKerasTrainedModel(test_data,weight,NodesArray)
+function [test_results,output_suppressor] = applyKerasTrainedModel(test_data,weight,NodesArray)
 %--------------------------------------------------------------------------
 % [Output] = applyKerasTrainedModel(test_data,net)
 %
@@ -9,9 +9,8 @@ function [test_results] = applyKerasTrainedModel(test_data,weight,NodesArray)
 % based on Keras with Tensorflow, python 3.6, all activation function uses
 % sigmoid (copy sigmoid.m together with this file for use elsewhere)
 %--------------------------------------------------------------------------
-% below line for avoiding values < 1 in dll application which cause system
-% access violation exception
-test_data = test_data - 1;
+
+output_suppressor = zeros(1,1);
 in_size = length(test_data);
 cursor = 1;
 Layers = length(NodesArray);
@@ -24,7 +23,8 @@ for i = 2:Layers
     cursor = cursor + NodesArray(i-1)*NodesArray(i);
     cursor = cursor + NodesArray(i);
 end
-temp = sigmoid(weight(cursor:cursor + NodesArray(Layers)-1)*temp+weight(end));
-test_results = temp;
+final_val = sigmoid(weight(cursor:cursor + NodesArray(Layers)-1)*temp+weight(end));
+test_results = zeros(1,1);
+test_results(1) = final_val(1);
 
 end

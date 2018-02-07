@@ -90,9 +90,31 @@ namespace OnlineNeuralNetworkTrainer
                 MessageBox.Show("open data base failed");
             }
         }
-        public void ExportToCSV()
+        public void ExportToCSV(BackgroundWorker bgw, string filepath)
         {
-            // To Be Implemeted
+            if (this.selectedDataLength != 0)
+            {
+                var csv = new StringBuilder();
+                var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6}",
+                    "No.", "Feature1", "Feature2", "Feature3", "Feature4", "Feature5", "results");
+                csv.AppendLine(newLine);
+                for (int i = 0; i < this.selectedDataLength; i++)
+                {
+                    newLine = string.Format("{0},{1},{2},{3},{4},{5},{6}", 
+                        1.0,
+                        this.selectedData[0][i],
+                        this.selectedData[1][i],
+                        this.selectedData[2][i],
+                        this.selectedData[3][i],
+                        this.selectedData[4][i],
+                        this.selectedData[5][i]);
+                    int progress = 100 * i / this.selectedDataLength;
+                    string progress_str = "Exporting: " + (i + 1).ToString() + "/" + this.selectedDataLength.ToString();
+                    bgw.ReportProgress(progress, progress_str);
+                    csv.AppendLine(newLine);
+                }
+                File.WriteAllText(filepath, csv.ToString());
+            }
         }
         public void ImportFromCSV(string filename, BackgroundWorker bgw)
         {
@@ -118,7 +140,7 @@ namespace OnlineNeuralNetworkTrainer
                     message = ex.InnerException.Message;
                 }
                 Console.Write("[DEBUG]: at DataBaseManager.cs, in ImportFromCSV(), ex: " + message);
-                MessageBox.Show("Import csv failed, please check csv format");
+                MessageBox.Show("Import csv failed, please check csv format/close the file in windows explorer if opened");
             }
         }
         public void AddToDB(double[] inputsArray)
@@ -206,5 +228,7 @@ namespace OnlineNeuralNetworkTrainer
                 MessageBox.Show("data base read failed");
             }
         }
+
+
     }
 }
