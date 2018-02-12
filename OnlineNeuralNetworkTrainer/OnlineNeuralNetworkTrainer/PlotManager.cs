@@ -8,6 +8,7 @@ namespace OnlineNeuralNetworkTrainer
 {
     public class PlotManager
     {
+        private readonly string debugTAG = "[PM]";
         public int[] array_cnt;
         public List<double[]> data = new List<double[]>();
         private int window_length = 500;
@@ -18,6 +19,7 @@ namespace OnlineNeuralNetworkTrainer
         private SymbolType[] SymbolArray = new SymbolType[] { SymbolType.Circle, SymbolType.Diamond, SymbolType.Square, SymbolType.Star, SymbolType.Triangle };
         public void InitializeGraph(ZedGraphControl zedGraphControl_graph, string title, string[] legends)
         {
+            SystemManager.Log(this.debugTAG, "initialising graph", false);
             array_cnt = new int[legends.Length];
             zedGraphControl_graph.GraphPane.Legend.IsVisible = true;
             zedGraphControl_graph.GraphPane.Title.Text = title;
@@ -46,6 +48,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             try
             {
+                SystemManager.Log(this.debugTAG, "adding data to plot (x,y)", false);
                 // Make sure that the curvelist has at least one curve
                 if (zedGraphControl_graph.GraphPane.CurveList.Count <= 0)
                     return;
@@ -79,6 +82,7 @@ namespace OnlineNeuralNetworkTrainer
                 {
                     message = ex.InnerException.Message;
                 }
+                SystemManager.Log(this.debugTAG, "plot failed: exception: "+ex.Message, false);
                 Console.Write("[DEBUG] at PlotManager.cs, in AddData(): " + message);
                 MessageBox.Show("error occurs during plotting");
             }
@@ -88,6 +92,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             try
             {
+                SystemManager.Log(this.debugTAG, "adding data to plot (y)", false);
                 // Make sure that the curvelist has at least one curve
                 if (zedGraphControl_graph.GraphPane.CurveList.Count <= 0)
                     return;
@@ -128,6 +133,7 @@ namespace OnlineNeuralNetworkTrainer
                 {
                     message = ex.InnerException.Message;
                 }
+                SystemManager.Log(this.debugTAG, "plot failed: exception: " + ex.Message, false);
                 Console.Write("[DEBUG] at PlotManager.cs, in AddData(): " + message);
                 MessageBox.Show("error occurs during plotting");
             }

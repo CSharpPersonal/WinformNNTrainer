@@ -9,11 +9,13 @@ namespace OnlineNeuralNetworkTrainer
 {
     public class JSONReader
     {
+        private readonly string debugTAG = "[JR]";
         public JSONReader()
         {}
 
         public KerasModel ReadArchitectureFromJsonFile(string filename)
         {
+            SystemManager.Log(this.debugTAG, "reading model architechture", false);
             string jsonString = File.ReadAllText(filename);
             dynamic json = Newtonsoft.Json.Linq.JToken.Parse(jsonString) as dynamic;
             int NumLayers = json.config.Count;
@@ -29,6 +31,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public double[] ReadWeightsFromJsonFile(string filename)
         {
+            SystemManager.Log(this.debugTAG, "reading model weights", false);
             string jsonString = File.ReadAllText(filename);
             dynamic json = Newtonsoft.Json.Linq.JToken.Parse(jsonString) as dynamic;
             string WeightsStr = json.Value;

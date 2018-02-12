@@ -4,7 +4,9 @@
  -------------------------------------------------*/
 
 using System;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace OnlineNeuralNetworkTrainer
 {
@@ -28,6 +30,26 @@ namespace OnlineNeuralNetworkTrainer
             T[] result = new T[length];
             Array.Copy(data, index, result, 0, length);
             return result;
+        }
+        public static void Log(string TAG, string message,bool isError)
+        {
+            string exepath = Path.GetDirectoryName(Application.ExecutablePath);
+            string LogPath = exepath + "\\Log";
+            Directory.CreateDirectory(LogPath);
+            string LogFilePath = LogPath + "\\Log.txt";
+            string path = LogFilePath;
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                if (isError)
+                {
+                    message = "[" + DateTime.Now + "] ERROR occured: " + TAG + message;
+                }
+                else
+                {
+                    message = "[" + DateTime.Now + "]"  + TAG + message;
+                }
+                sw.WriteLine(message);
+            }
         }
     }
 }

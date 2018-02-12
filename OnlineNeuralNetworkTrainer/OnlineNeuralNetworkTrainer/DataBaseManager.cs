@@ -13,6 +13,7 @@ namespace OnlineNeuralNetworkTrainer
 {
     public class DataBaseManager
     {
+        private readonly string debugTAG = "[DBM]";
         public string database_file;
         public string database_table = "recorded_data";
         public string database_format = " (date_collection DATETIME, feature1 DOUBLE(8,2), feature2 DOUBLE(8,2), feature3 DOUBLE(8,2), feature4 DOUBLE(8,2), feature5 DOUBLE(8,2), result DOUBLE(8,2))";
@@ -94,6 +95,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             if (this.selectedDataLength != 0)
             {
+                SystemManager.Log(this.debugTAG, "exporting selected data", false);
                 var csv = new StringBuilder();
                 var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6}",
                     "No.", "Feature1", "Feature2", "Feature3", "Feature4", "Feature5", "results");
@@ -120,6 +122,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             try
             {
+                SystemManager.Log(this.debugTAG, "start importing from csv", false);
                 string[] lines = File.ReadAllLines(filename);
                 for (int i = 1; i < lines.Length; i++)
                 {
@@ -139,6 +142,7 @@ namespace OnlineNeuralNetworkTrainer
                 {
                     message = ex.InnerException.Message;
                 }
+                SystemManager.Log(this.debugTAG, "import csv failed, exception: " +message, true);
                 Console.Write("[DEBUG]: at DataBaseManager.cs, in ImportFromCSV(), ex: " + message);
                 MessageBox.Show("Import csv failed, please check csv format/close the file in windows explorer if opened");
             }
@@ -147,6 +151,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             try
             {
+                SystemManager.Log(this.debugTAG, "adding data to database", false);
                 string valueStr = SQLString(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", null)) + ", "
                     + inputsArray[0].ToString("0.##") + ", "
                     + inputsArray[1].ToString("0.##") + ", "
@@ -165,6 +170,7 @@ namespace OnlineNeuralNetworkTrainer
                 {
                     message = ex.InnerException.Message;
                 }
+                SystemManager.Log(this.debugTAG,"add to database failed, exception: " + message, true);
                 Console.Write("[DEBUG]: at DataBaseManager.cs, in AddToDatabase(), ex: " + message);
                 MessageBox.Show("add to data base failed");
             }
@@ -177,6 +183,7 @@ namespace OnlineNeuralNetworkTrainer
         {
             try
             {
+                SystemManager.Log(this.debugTAG, "selecting all data: ", false);
                 string sql = "select count(*) from " + this.database_table;
                 SQLiteCommand command = new SQLiteCommand(sql, this.db_connection);
                 SQLiteDataReader reader = command.ExecuteReader();
@@ -224,6 +231,7 @@ namespace OnlineNeuralNetworkTrainer
                 {
                     message = ex.InnerException.Message;
                 }
+                SystemManager.Log(this.debugTAG, "select data failed, exception: " + message, true);
                 Console.Write("[DEBUG]: at DataBaseManager.cs, in SelectAllData(), ex: " + message);
                 MessageBox.Show("data base read failed");
             }

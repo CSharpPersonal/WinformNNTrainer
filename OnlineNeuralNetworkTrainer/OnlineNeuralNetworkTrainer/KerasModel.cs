@@ -11,6 +11,7 @@ namespace OnlineNeuralNetworkTrainer
 {
     public class KerasModel
     {
+        private readonly string debugTAG = "[KM]";
         public string ClassName;
         public string KerasVersion;
         public string Backend;
@@ -25,6 +26,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public KerasModel(string className, string kerasVersion, string backend, int numLayers, int[] numNeuronLayers, int inputSize)
         {
+            SystemManager.Log(this.debugTAG, "Keras model initialising", false);
             this.ClassName = className;
             this.KerasVersion = kerasVersion;
             this.Backend = backend;
@@ -35,6 +37,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public bool IsReadyForTraining()
         {
+            SystemManager.Log(this.debugTAG, "checking if model is ready to train", false);
             if (this.NumLayers > 0 && Array.IndexOf(this.NumNeuronLayers,0) == -1)
             {
                 return true;
@@ -44,6 +47,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public string GetModelBriefSummary()
         {
+            SystemManager.Log(this.debugTAG, "getting model summary", false);
             string summary = "-----------Loaded Model-----------\n";
             summary += "Keras Version: " + this.KerasVersion + "\n";
             summary += "Backend Engine: " + this.Backend + "\n";
@@ -63,6 +67,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public bool ExportConfig(string path)
         {
+            SystemManager.Log(this.debugTAG, "exporting config", false);
             string outputStr = "";
             outputStr += "Layers=" + this.NumLayers + "\r\n";
             for (int i = 0; i < this.NumLayers; i++)
@@ -82,6 +87,7 @@ namespace OnlineNeuralNetworkTrainer
             }
             catch (Exception ex)
             {
+                SystemManager.Log(this.debugTAG, "export config failed, exception: "+ex.Message, true);
                 Console.WriteLine("[DEBUG] at KerasModel.cs, in ExportConfig(): file writing exception: " + ex.Message);
                 return false;
             }
@@ -90,6 +96,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public void ExpandWeightsLongArray()
         {
+            SystemManager.Log(this.debugTAG, "expanding weight array to matrix", false);
             if (this.weightsLongArray == null || this.NumLayers == 0 || this.NumNeuronLayers.Length != this.NumLayers)
             {
                 throw new ArgumentException("Unable to expand weight array");
@@ -153,6 +160,7 @@ namespace OnlineNeuralNetworkTrainer
 
         public double Predict(double[] inputsArray)
         {
+            SystemManager.Log(this.debugTAG, "performing predict", false);
             double result = 0;
             // Matlab generate library is causeing SystemViolationException - FIX later
             /*

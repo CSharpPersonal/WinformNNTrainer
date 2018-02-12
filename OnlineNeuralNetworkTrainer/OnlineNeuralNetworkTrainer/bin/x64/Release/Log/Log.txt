@@ -1,0 +1,43 @@
+[12/02/2018 4:01:41 PM][KM]Keras model initialising
+[12/02/2018 4:01:41 PM][MF]MainFormInitialise called
+[12/02/2018 4:01:44 PM][MF]on click load model button
+[12/02/2018 4:01:45 PM][MF]on click select history model button
+[12/02/2018 4:01:50 PM][JR]reading model architechture
+[12/02/2018 4:01:50 PM][KM]Keras model initialising
+[12/02/2018 4:01:50 PM][KM]getting model summary
+[12/02/2018 4:01:50 PM][MF]weight loaded
+[12/02/2018 4:01:50 PM][JR]reading model weights
+[12/02/2018 4:01:50 PM][KM]expanding weight array to matrix
+[12/02/2018 4:01:53 PM][MF]on click input data button
+[12/02/2018 4:01:54 PM][MF]on click sql select button
+[12/02/2018 4:01:54 PM][SDF]initialising SDF
+[12/02/2018 4:01:55 PM][SDF]on click sdf select all data button
+[12/02/2018 4:01:55 PM][DBM]selecting all data: 
+[12/02/2018 4:01:55 PM][SDF]database loading completed
+[12/02/2018 4:01:57 PM][SDF]on click sdf confirm button
+[12/02/2018 4:01:57 PM][MF]call back on sdf selected data
+[12/02/2018 4:01:57 PM][MF]selected data 0 length
+[12/02/2018 4:01:59 PM][MF]on click predict button
+[12/02/2018 4:01:59 PM] ERROR occured: [MF]Predict failed, exception: Input string was not in a correct format.
+[12/02/2018 4:02:02 PM][MF]on click input data button
+[12/02/2018 4:02:03 PM][MF]on click configure model button
+[12/02/2018 4:02:04 PM][MF]on click input data button
+[12/02/2018 4:02:08 PM][MF]on click save data button
+[12/02/2018 4:02:08 PM] ERROR occured: [MF]save data failed, exception: Input string was not in a correct format.
+[12/02/2018 4:02:13 PM][MF]on click save data button
+[12/02/2018 4:02:13 PM][DBM]adding data to database
+[12/02/2018 4:02:14 PM][MF]save data success
+[12/02/2018 4:02:16 PM][MF]on click predict button
+[12/02/2018 4:02:16 PM][KM]performing predict
+[12/02/2018 4:02:16 PM][MF]Predict success, results: 0.87
+[12/02/2018 4:02:22 PM][MF]on click configure model button
+[12/02/2018 4:02:28 PM][MF]on click apply num neurons button
+[12/02/2018 4:02:31 PM][MF]on click apply num neurons button
+[12/02/2018 4:02:33 PM][MF]on click apply all settings button
+[12/02/2018 4:02:33 PM][KM]checking if model is ready to train
+[12/02/2018 4:02:33 PM][MF]model ready for training
+[12/02/2018 4:02:33 PM][KM]getting model summary
+[12/02/2018 4:02:36 PM][MF]on click train model button
+[12/02/2018 4:02:36 PM][KM]exporting config
+[12/02/2018 4:02:36 PM][MF]try start training
+[12/02/2018 4:02:36 PM][MF]initialising spinner

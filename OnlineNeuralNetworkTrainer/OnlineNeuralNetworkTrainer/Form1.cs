@@ -17,8 +17,9 @@ namespace OnlineNeuralNetworkTrainer
     public partial class MainForm : Form
     {
         private Process process;
-        SpinnerForm sf = new SpinnerForm();
-        Thread Spinner_th;
+        private SpinnerForm sf = new SpinnerForm();
+        private Thread Spinner_th;
+        private readonly string debugTAG = "[MF]";
         public MainForm()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void MainFormInitialise()
         {
+            SystemManager.Log(this.debugTAG,"MainFormInitialise called",false);
             this.Text = "NN Trainer v" + SystemManager.SoftwareVersion;
             this.batchSizeDropMenu.SelectedIndex = 0;
             this.optimFuncDropMenu.SelectedIndex = 0;
@@ -43,21 +45,25 @@ namespace OnlineNeuralNetworkTrainer
 
         private void load_model_btn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click load model button", false);
             this.mainTablessControl.SelectedIndex = 0;
         }
 
         private void inputDataBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click input data button", false);
             this.mainTablessControl.SelectedIndex = 1;
         }
 
         private void ConfigModelBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click configure model button", false);
             this.mainTablessControl.SelectedIndex = 2;
         }
 
         private void selectHistoryModelBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click select history model button", false);
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "JSON model files (*model*.json)|*model*.json";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -69,6 +75,7 @@ namespace OnlineNeuralNetworkTrainer
                 string weightFileName = modelFileName.Replace("model","weight");
                 if (File.Exists(weightFileName))
                 {
+                    SystemManager.Log(this.debugTAG,"weight loaded", false);
                     double[] weights = jr.ReadWeightsFromJsonFile(weightFileName);
                     SystemManager.CurrentKerasModel.weightsLongArray = weights;
                     SystemManager.CurrentKerasModel.ExpandWeightsLongArray();
@@ -76,6 +83,7 @@ namespace OnlineNeuralNetworkTrainer
                 }
                 else
                 {
+                    SystemManager.Log(this.debugTAG,"weight json not found", true);
                     txt += "Weight File Not Found\n";
                 }
                 this.ConsoleLabel.Text = txt;
@@ -84,24 +92,28 @@ namespace OnlineNeuralNetworkTrainer
 
         private void trainModelBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click train model button", false);
             string exepath = Path.GetDirectoryName(Application.ExecutablePath);
             string pyScriptPath = exepath + "\\data\\Trainerbackend.exe";
             string ConfigPath = exepath + "\\data\\testdata";
             string dataPath = exepath + "\\data\\testdata\\data.csv";
             if (SystemManager.CurrentKerasModel == null)
             {
+                SystemManager.Log(this.debugTAG,"Current model not configured", true);
                 MessageBox.Show("ERROR: please load a model or config a model first");
                 Console.WriteLine("[DEBUG] at Form1.cs, in trainModelBtn_Click() Keras Model not loaded");
                 return;
             }
             if (!File.Exists(pyScriptPath))
             {
+                SystemManager.Log(this.debugTAG,"backend script not found", true);
                 MessageBox.Show("ERROR: Backend script missing");
                 Console.WriteLine("[DEBUG] at Form1.cs, in trainModelBtn_Click() file missing");
                 return;
             }
             if (!File.Exists(dataPath))
             {
+                SystemManager.Log(this.debugTAG,"data not loaded", true);
                 MessageBox.Show("ERROR: training data missing");
                 Console.WriteLine("[DEBUG] at Form1.cs, in trainModelBtn_Click() file missing");
                 return;
@@ -109,11 +121,13 @@ namespace OnlineNeuralNetworkTrainer
             bool success = SystemManager.CurrentKerasModel.ExportConfig(ConfigPath);
             if (!success)
             {
+                SystemManager.Log(this.debugTAG,"Export config file writing error", true);
                 MessageBox.Show("config file writing error, please check user permission");
                 return;
             }
             try
             {
+                SystemManager.Log(this.debugTAG,"try start training", false);
                 if (process == null)
                 {
                     process = new Process();
@@ -141,6 +155,7 @@ namespace OnlineNeuralNetworkTrainer
                 {
                     message = ex.InnerException.Message;
                 }
+                SystemManager.Log(this.debugTAG,"run cmd error, exception: " + message, true);
                 Console.Write("[DEBUG] at Form1.cs, in trainModelBtn_Click() cmd exe error: " + message);
                 MessageBox.Show("ERROR: running backend script exception");
             }
@@ -183,6 +198,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void BGW_Train_onWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"model training process completed", false);
             StopSpinnerThread();
             string exepath = Path.GetDirectoryName(Application.ExecutablePath);
             Directory.SetCurrentDirectory(exepath);
@@ -191,6 +207,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void StartSpinnerThread()
         {
+            SystemManager.Log(this.debugTAG,"initialising spinner", false);
             left_panel.Enabled = false;
             this.FormBorderStyle = FormBorderStyle.None;
             mainTablessControl.Enabled = false;
@@ -205,6 +222,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void StopSpinnerThread()
         {
+            SystemManager.Log(this.debugTAG,"disabling spinner", false);
             Spinner_th.Abort();
             left_panel.Enabled = true;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -245,6 +263,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void ApplyNumNeuronsBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click apply num neurons button", false);
             try
             {
                 int selectedLayer = this.LayerSelectorDropMenu.SelectedIndex;
@@ -259,6 +278,7 @@ namespace OnlineNeuralNetworkTrainer
             }
             catch (Exception ex)
             {
+                SystemManager.Log(this.debugTAG,"invalid input from num neuron, exception: " + ex.Message, true);
                 Console.WriteLine("[DEBUG] at Form1.cs, in ApplyNumNeuronsBtn_Click() error input number: " + ex.Message);
                 MessageBox.Show("Please input an integer ranged between (2 - 50)");
             }
@@ -266,6 +286,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void loadHistorySettingBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click load history settings button", false);
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "JSON model files (*model*.json)|*model*.json";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -280,20 +301,24 @@ namespace OnlineNeuralNetworkTrainer
 
         private void ApplyAllSettingBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click apply all settings button", false);
             if (SystemManager.TempKerasModel.IsReadyForTraining())
             {
+                SystemManager.Log(this.debugTAG,"model ready for training", false);
                 SystemManager.CurrentKerasModel = SystemManager.TempKerasModel;
                 string txt = SystemManager.CurrentKerasModel.GetModelBriefSummary();
                 this.ConsoleLabel.Text = txt;
             }
             else
             {
+                SystemManager.Log(this.debugTAG,"model not ready for training", false);
                 MessageBox.Show("Model configuration not ready");
             }
         }
 
         private void predictBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click predict button", false);
             try
             {
                 //TODO: input limited to 5 in this demo, adjust in future
@@ -305,9 +330,11 @@ namespace OnlineNeuralNetworkTrainer
                 inputsArray[4] = Convert.ToDouble(feature5TB.Text);
                 double result = SystemManager.CurrentKerasModel.Predict(inputsArray);
                 this.ConsoleLabel.Text = "Prediction: Output = " + result.ToString("0.##");
+                SystemManager.Log(this.debugTAG,"Predict success, results: " + result.ToString("0.##"), false);
             }
             catch (Exception ex)
             {
+                SystemManager.Log(this.debugTAG,"Predict failed, exception: " + ex.Message, true);
                 Console.WriteLine("[DEBUG] at Form1.cs, in predictBtn_Click ex: " + ex.Message);
                 MessageBox.Show("ERROR occurs when preforming prediction, please check if the model is loaded and all inputs are valid");
             }
@@ -315,18 +342,22 @@ namespace OnlineNeuralNetworkTrainer
 
         private void csvExportBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click csvExport button", false);
             if (SystemManager.dbm.selectedDataLength != 0)
             {
+                SystemManager.Log(this.debugTAG,"start data export", false);
                 this.BGW_export_csv.RunWorkerAsync();
             }
             else
             {
+                SystemManager.Log(this.debugTAG,"failed to start export, no data selection", true);
                 MessageBox.Show("No selected data yet!");
             }
         }
 
         private void saveDataBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click save data button", false);
             try
             {
                 //TODO: input limited to 5 in this demo, adjust in future
@@ -338,10 +369,12 @@ namespace OnlineNeuralNetworkTrainer
                 inputsArray[4] = Convert.ToDouble(feature5TB.Text);
                 inputsArray[5] = Convert.ToDouble(resultTB.Text);
                 SystemManager.dbm.AddToDB(inputsArray);
+                SystemManager.Log(this.debugTAG,"save data success", false);
                 this.ConsoleLabel.Text = "add data success";
             }
             catch (Exception ex)
             {
+                SystemManager.Log(this.debugTAG,"save data failed, exception: " + ex.Message, true);
                 Console.WriteLine("[DEBUG] at Form1.cs, in saveDataBtn_Click ex: " + ex.Message);
                 MessageBox.Show("ERROR occurs when saving data, please check if all inputs are valid");
             }
@@ -349,6 +382,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void sqlSelectBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click sql select button", false);
             SelectDataForm sdf = new SelectDataForm(this);
             this.Hide();
             sdf.ShowDialog(this);
@@ -366,10 +400,12 @@ namespace OnlineNeuralNetworkTrainer
 
         private void importCSVBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on click import csv button", false);
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "JSON model files (*.csv)|*.csv";
+            ofd.Filter = "comma seperated file (*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                SystemManager.Log(this.debugTAG,"file selected: " + ofd.FileName, false);
                 string csvFileName = ofd.FileName;
                 BGW_import_csv.RunWorkerAsync(csvFileName);
                 this.StartSpinnerThread();
@@ -377,33 +413,40 @@ namespace OnlineNeuralNetworkTrainer
         }
         public void onSDFSelectedData(bool isConfirmed)
         {
+            SystemManager.Log(this.debugTAG,"call back on sdf selected data", false);
             if (isConfirmed)
             {
                 int datalen = SystemManager.dbm.selectedDataLength;
                 if (datalen == 0)
                 {
+                    SystemManager.Log(this.debugTAG,"selected data 0 length", false);
                     this.ConsoleLabel.Text = "no data is selected";
                 }
                 else
                 {
+                    SystemManager.Log(this.debugTAG,"selected data length: " + SystemManager.dbm.selectedDataLength.ToString(), false);
                     this.ConsoleLabel.Text = "Selected data from data base, length: " + SystemManager.dbm.selectedDataLength.ToString();
                 }
             }
             else
             {
+                SystemManager.Log(this.debugTAG,"canceled", false);
                 this.ConsoleLabel.Text = "operation canceled";
             }
         }
 
         private void visualiseBtn_Click(object sender, EventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"on clik visulise data button", false);
             if (SystemManager.CurrentKerasModel == null)
             {
+                SystemManager.Log(this.debugTAG,"no model is loaded", false);
                 MessageBox.Show("Please load a model first");
                 return;
             }
             if (SystemManager.dbm.selectedDataLength == 0 || SystemManager.dbm.selectedData == null)
             {
+                SystemManager.Log(this.debugTAG,"no data is selecred", false);
                 MessageBox.Show("Please select data first");
                 return;
             }
@@ -436,6 +479,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void BGW_visualise_data_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"visualising data process completed", false);
             SystemManager.PMPerformaceView.InitializeGraph(performanceView, "Predicted Values vs Expected Values", new string[] { "Predicted","Expected" });
             int[] temp = Enumerable.Range(0, SystemManager.PMPerformaceView.data[0].Length).ToArray<int>();
             double[] idx = Array.ConvertAll<int,double>(temp, d => (double)d);
@@ -447,6 +491,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void BGW_import_csv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"csv import completed", false);
             this.StopSpinnerThread();
         }
 
@@ -460,6 +505,7 @@ namespace OnlineNeuralNetworkTrainer
 
         private void BGW_export_csv_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            SystemManager.Log(this.debugTAG,"ecv export completed", false);
             ConsoleLabel.Text = "Export completed";
             this.StopSpinnerThread();
         }
