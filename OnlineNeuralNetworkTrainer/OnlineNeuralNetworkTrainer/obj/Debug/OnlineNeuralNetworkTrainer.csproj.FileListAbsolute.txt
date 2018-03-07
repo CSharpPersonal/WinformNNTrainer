@@ -26,7 +26,6 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.MainForm.resources
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.Properties.Resources.resources
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.csproj.GenerateResource.Cache
-D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.SpinnerForm.resources
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\akm_x64.dll
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\akm_x64.pdb
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\ZedGraph.dll
@@ -62,3 +61,15 @@ D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralN
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.Math.xml
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\Accord.Math.Core.xml
 D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\MathNet.Numerics.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.csprojResolveAssemblyReference.cache
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.spinner_panel.resources
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.Data.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.Graphviz.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.Serialization.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\WPFExtensions.dll
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.Data.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.Graphviz.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\bin\Debug\QuickGraph.Serialization.xml
+D:\Derek\Software\temp\WinformNNTrainer\OnlineNeuralNetworkTrainer\OnlineNeuralNetworkTrainer\obj\Debug\OnlineNeuralNetworkTrainer.DataStructureBrowserForm.resources

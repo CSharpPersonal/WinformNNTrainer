@@ -31,7 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.main_panel = new System.Windows.Forms.Panel();
             this.right_panel = new System.Windows.Forms.Panel();
+            this.console_panel = new System.Windows.Forms.Panel();
             this.ConsoleLabel = new System.Windows.Forms.Label();
+            this.tab_panel = new System.Windows.Forms.Panel();
+            this.left_panel = new System.Windows.Forms.Panel();
+            this.ConfigModelBtn = new System.Windows.Forms.Button();
+            this.inputDataBtn = new System.Windows.Forms.Button();
+            this.loadModelBtn = new System.Windows.Forms.Button();
+            this.logo_pb = new System.Windows.Forms.PictureBox();
+            this.BGW_Train = new System.ComponentModel.BackgroundWorker();
+            this.BGW_import_csv = new System.ComponentModel.BackgroundWorker();
+            this.BGW_visualise_data = new System.ComponentModel.BackgroundWorker();
+            this.BGW_export_csv = new System.ComponentModel.BackgroundWorker();
             this.mainTablessControl = new TablessControl();
             this.LoadModel = new System.Windows.Forms.TabPage();
             this.performanceView = new ZedGraph.ZedGraphControl();
@@ -80,18 +91,13 @@
             this.numOFLayerTB = new System.Windows.Forms.TextBox();
             this.trainFuncPanel = new System.Windows.Forms.Panel();
             this.trainModelBtn = new System.Windows.Forms.Button();
-            this.TrainProgressBar = new System.Windows.Forms.ProgressBar();
-            this.left_panel = new System.Windows.Forms.Panel();
-            this.ConfigModelBtn = new System.Windows.Forms.Button();
-            this.inputDataBtn = new System.Windows.Forms.Button();
-            this.loadModelBtn = new System.Windows.Forms.Button();
-            this.logo_pb = new System.Windows.Forms.PictureBox();
-            this.BGW_Train = new System.ComponentModel.BackgroundWorker();
-            this.BGW_import_csv = new System.ComponentModel.BackgroundWorker();
-            this.BGW_visualise_data = new System.ComponentModel.BackgroundWorker();
-            this.BGW_export_csv = new System.ComponentModel.BackgroundWorker();
+            this.view_structure_btn = new System.Windows.Forms.Button();
             this.main_panel.SuspendLayout();
             this.right_panel.SuspendLayout();
+            this.console_panel.SuspendLayout();
+            this.tab_panel.SuspendLayout();
+            this.left_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.mainTablessControl.SuspendLayout();
             this.LoadModel.SuspendLayout();
             this.AddData.SuspendLayout();
@@ -102,8 +108,6 @@
             this.trainConfigGB.SuspendLayout();
             this.netArchitechGB.SuspendLayout();
             this.trainFuncPanel.SuspendLayout();
-            this.left_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // main_panel
@@ -118,8 +122,8 @@
             // 
             // right_panel
             // 
-            this.right_panel.Controls.Add(this.ConsoleLabel);
-            this.right_panel.Controls.Add(this.mainTablessControl);
+            this.right_panel.Controls.Add(this.console_panel);
+            this.right_panel.Controls.Add(this.tab_panel);
             this.right_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.right_panel.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.right_panel.Location = new System.Drawing.Point(170, 0);
@@ -127,28 +131,142 @@
             this.right_panel.Size = new System.Drawing.Size(500, 439);
             this.right_panel.TabIndex = 1;
             // 
+            // console_panel
+            // 
+            this.console_panel.Controls.Add(this.ConsoleLabel);
+            this.console_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.console_panel.Location = new System.Drawing.Point(0, 321);
+            this.console_panel.Name = "console_panel";
+            this.console_panel.Size = new System.Drawing.Size(500, 118);
+            this.console_panel.TabIndex = 1;
+            // 
             // ConsoleLabel
             // 
             this.ConsoleLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ConsoleLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ConsoleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConsoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConsoleLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConsoleLabel.Location = new System.Drawing.Point(0, 322);
+            this.ConsoleLabel.Location = new System.Drawing.Point(0, 0);
             this.ConsoleLabel.Name = "ConsoleLabel";
-            this.ConsoleLabel.Size = new System.Drawing.Size(500, 117);
+            this.ConsoleLabel.Size = new System.Drawing.Size(500, 118);
             this.ConsoleLabel.TabIndex = 1;
             this.ConsoleLabel.Text = "Console";
+            // 
+            // tab_panel
+            // 
+            this.tab_panel.Controls.Add(this.mainTablessControl);
+            this.tab_panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tab_panel.Location = new System.Drawing.Point(0, 0);
+            this.tab_panel.Name = "tab_panel";
+            this.tab_panel.Size = new System.Drawing.Size(500, 318);
+            this.tab_panel.TabIndex = 0;
+            // 
+            // left_panel
+            // 
+            this.left_panel.BackgroundImage = global::OnlineNeuralNetworkTrainer.Properties.Resources.left_panel_bgi;
+            this.left_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.left_panel.Controls.Add(this.ConfigModelBtn);
+            this.left_panel.Controls.Add(this.inputDataBtn);
+            this.left_panel.Controls.Add(this.loadModelBtn);
+            this.left_panel.Controls.Add(this.logo_pb);
+            this.left_panel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.left_panel.Location = new System.Drawing.Point(0, 0);
+            this.left_panel.Name = "left_panel";
+            this.left_panel.Size = new System.Drawing.Size(170, 439);
+            this.left_panel.TabIndex = 0;
+            // 
+            // ConfigModelBtn
+            // 
+            this.ConfigModelBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.ConfigModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfigModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ConfigModelBtn.Location = new System.Drawing.Point(3, 135);
+            this.ConfigModelBtn.Name = "ConfigModelBtn";
+            this.ConfigModelBtn.Size = new System.Drawing.Size(160, 26);
+            this.ConfigModelBtn.TabIndex = 3;
+            this.ConfigModelBtn.Text = "Config Model";
+            this.ConfigModelBtn.UseVisualStyleBackColor = false;
+            this.ConfigModelBtn.Click += new System.EventHandler(this.ConfigModelBtn_Click);
+            // 
+            // inputDataBtn
+            // 
+            this.inputDataBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.inputDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inputDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputDataBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.inputDataBtn.Location = new System.Drawing.Point(4, 103);
+            this.inputDataBtn.Name = "inputDataBtn";
+            this.inputDataBtn.Size = new System.Drawing.Size(160, 26);
+            this.inputDataBtn.TabIndex = 2;
+            this.inputDataBtn.Text = "Add Data";
+            this.inputDataBtn.UseVisualStyleBackColor = false;
+            this.inputDataBtn.Click += new System.EventHandler(this.inputDataBtn_Click);
+            // 
+            // loadModelBtn
+            // 
+            this.loadModelBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.loadModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.loadModelBtn.Location = new System.Drawing.Point(4, 71);
+            this.loadModelBtn.Name = "loadModelBtn";
+            this.loadModelBtn.Size = new System.Drawing.Size(160, 26);
+            this.loadModelBtn.TabIndex = 1;
+            this.loadModelBtn.Text = "Load Model";
+            this.loadModelBtn.UseVisualStyleBackColor = false;
+            this.loadModelBtn.Click += new System.EventHandler(this.load_model_btn_Click);
+            // 
+            // logo_pb
+            // 
+            this.logo_pb.BackColor = System.Drawing.Color.Transparent;
+            this.logo_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.logo_pb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logo_pb.Image = global::OnlineNeuralNetworkTrainer.Properties.Resources.sample_logo;
+            this.logo_pb.Location = new System.Drawing.Point(0, 0);
+            this.logo_pb.Name = "logo_pb";
+            this.logo_pb.Size = new System.Drawing.Size(170, 65);
+            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo_pb.TabIndex = 0;
+            this.logo_pb.TabStop = false;
+            // 
+            // BGW_Train
+            // 
+            this.BGW_Train.WorkerReportsProgress = true;
+            this.BGW_Train.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_Train_DoWork);
+            this.BGW_Train.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_Train_onProgressChanged);
+            this.BGW_Train.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
+            // 
+            // BGW_import_csv
+            // 
+            this.BGW_import_csv.WorkerReportsProgress = true;
+            this.BGW_import_csv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_import_csv_DoWork);
+            this.BGW_import_csv.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_import_csv_onProgressChanged);
+            this.BGW_import_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_import_csv_RunWorkerCompleted);
+            // 
+            // BGW_visualise_data
+            // 
+            this.BGW_visualise_data.WorkerReportsProgress = true;
+            this.BGW_visualise_data.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_visualise_data_DoWork);
+            this.BGW_visualise_data.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_visualise_data_RunWorkerCompleted);
+            // 
+            // BGW_export_csv
+            // 
+            this.BGW_export_csv.WorkerReportsProgress = true;
+            this.BGW_export_csv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_export_csv_DoWork);
+            this.BGW_export_csv.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_export_csv_ProgressChanged);
+            this.BGW_export_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_export_csv_RunWorkerCompleted);
             // 
             // mainTablessControl
             // 
             this.mainTablessControl.Controls.Add(this.LoadModel);
             this.mainTablessControl.Controls.Add(this.AddData);
             this.mainTablessControl.Controls.Add(this.ConfigModel);
-            this.mainTablessControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mainTablessControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTablessControl.Location = new System.Drawing.Point(0, 0);
             this.mainTablessControl.Name = "mainTablessControl";
             this.mainTablessControl.SelectedIndex = 0;
-            this.mainTablessControl.Size = new System.Drawing.Size(500, 319);
+            this.mainTablessControl.Size = new System.Drawing.Size(500, 318);
             this.mainTablessControl.TabIndex = 0;
             // 
             // LoadModel
@@ -159,7 +277,7 @@
             this.LoadModel.Location = new System.Drawing.Point(4, 22);
             this.LoadModel.Name = "LoadModel";
             this.LoadModel.Padding = new System.Windows.Forms.Padding(3);
-            this.LoadModel.Size = new System.Drawing.Size(492, 293);
+            this.LoadModel.Size = new System.Drawing.Size(492, 292);
             this.LoadModel.TabIndex = 0;
             this.LoadModel.Text = "load model";
             this.LoadModel.UseVisualStyleBackColor = true;
@@ -167,7 +285,7 @@
             // performanceView
             // 
             this.performanceView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.performanceView.Location = new System.Drawing.Point(3, 41);
+            this.performanceView.Location = new System.Drawing.Point(3, 40);
             this.performanceView.Name = "performanceView";
             this.performanceView.ScrollGrace = 0D;
             this.performanceView.ScrollMaxX = 0D;
@@ -215,7 +333,7 @@
             this.AddData.Location = new System.Drawing.Point(4, 22);
             this.AddData.Name = "AddData";
             this.AddData.Padding = new System.Windows.Forms.Padding(3);
-            this.AddData.Size = new System.Drawing.Size(492, 293);
+            this.AddData.Size = new System.Drawing.Size(492, 292);
             this.AddData.TabIndex = 1;
             this.AddData.Text = "Add Data";
             this.AddData.UseVisualStyleBackColor = true;
@@ -226,7 +344,7 @@
             this.DataBaseGB.Controls.Add(this.csvExportBtn);
             this.DataBaseGB.Controls.Add(this.sqlSelectBtn);
             this.DataBaseGB.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataBaseGB.Location = new System.Drawing.Point(3, 152);
+            this.DataBaseGB.Location = new System.Drawing.Point(3, 151);
             this.DataBaseGB.Name = "DataBaseGB";
             this.DataBaseGB.Size = new System.Drawing.Size(486, 138);
             this.DataBaseGB.TabIndex = 1;
@@ -453,7 +571,7 @@
             this.ConfigModel.Controls.Add(this.trainFuncPanel);
             this.ConfigModel.Location = new System.Drawing.Point(4, 22);
             this.ConfigModel.Name = "ConfigModel";
-            this.ConfigModel.Size = new System.Drawing.Size(492, 293);
+            this.ConfigModel.Size = new System.Drawing.Size(492, 292);
             this.ConfigModel.TabIndex = 2;
             this.ConfigModel.Text = "Config Model";
             this.ConfigModel.UseVisualStyleBackColor = true;
@@ -709,10 +827,10 @@
             // 
             // trainFuncPanel
             // 
+            this.trainFuncPanel.Controls.Add(this.view_structure_btn);
             this.trainFuncPanel.Controls.Add(this.trainModelBtn);
-            this.trainFuncPanel.Controls.Add(this.TrainProgressBar);
             this.trainFuncPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.trainFuncPanel.Location = new System.Drawing.Point(0, 259);
+            this.trainFuncPanel.Location = new System.Drawing.Point(0, 258);
             this.trainFuncPanel.Name = "trainFuncPanel";
             this.trainFuncPanel.Size = new System.Drawing.Size(492, 34);
             this.trainFuncPanel.TabIndex = 4;
@@ -723,116 +841,27 @@
             this.trainModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.trainModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trainModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.trainModelBtn.Location = new System.Drawing.Point(329, 5);
+            this.trainModelBtn.Location = new System.Drawing.Point(251, 5);
             this.trainModelBtn.Name = "trainModelBtn";
-            this.trainModelBtn.Size = new System.Drawing.Size(160, 26);
+            this.trainModelBtn.Size = new System.Drawing.Size(238, 26);
             this.trainModelBtn.TabIndex = 2;
             this.trainModelBtn.Text = "Train";
             this.trainModelBtn.UseVisualStyleBackColor = false;
             this.trainModelBtn.Click += new System.EventHandler(this.trainModelBtn_Click);
             // 
-            // TrainProgressBar
+            // view_structure_btn
             // 
-            this.TrainProgressBar.Location = new System.Drawing.Point(3, 5);
-            this.TrainProgressBar.Name = "TrainProgressBar";
-            this.TrainProgressBar.Size = new System.Drawing.Size(320, 26);
-            this.TrainProgressBar.TabIndex = 3;
-            // 
-            // left_panel
-            // 
-            this.left_panel.BackgroundImage = global::OnlineNeuralNetworkTrainer.Properties.Resources.left_panel_bgi;
-            this.left_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.left_panel.Controls.Add(this.ConfigModelBtn);
-            this.left_panel.Controls.Add(this.inputDataBtn);
-            this.left_panel.Controls.Add(this.loadModelBtn);
-            this.left_panel.Controls.Add(this.logo_pb);
-            this.left_panel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.left_panel.Location = new System.Drawing.Point(0, 0);
-            this.left_panel.Name = "left_panel";
-            this.left_panel.Size = new System.Drawing.Size(170, 439);
-            this.left_panel.TabIndex = 0;
-            // 
-            // ConfigModelBtn
-            // 
-            this.ConfigModelBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.ConfigModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfigModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfigModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ConfigModelBtn.Location = new System.Drawing.Point(3, 135);
-            this.ConfigModelBtn.Name = "ConfigModelBtn";
-            this.ConfigModelBtn.Size = new System.Drawing.Size(160, 26);
-            this.ConfigModelBtn.TabIndex = 3;
-            this.ConfigModelBtn.Text = "Config Model";
-            this.ConfigModelBtn.UseVisualStyleBackColor = false;
-            this.ConfigModelBtn.Click += new System.EventHandler(this.ConfigModelBtn_Click);
-            // 
-            // inputDataBtn
-            // 
-            this.inputDataBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.inputDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inputDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputDataBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.inputDataBtn.Location = new System.Drawing.Point(4, 103);
-            this.inputDataBtn.Name = "inputDataBtn";
-            this.inputDataBtn.Size = new System.Drawing.Size(160, 26);
-            this.inputDataBtn.TabIndex = 2;
-            this.inputDataBtn.Text = "Add Data";
-            this.inputDataBtn.UseVisualStyleBackColor = false;
-            this.inputDataBtn.Click += new System.EventHandler(this.inputDataBtn_Click);
-            // 
-            // loadModelBtn
-            // 
-            this.loadModelBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.loadModelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadModelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadModelBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.loadModelBtn.Location = new System.Drawing.Point(4, 71);
-            this.loadModelBtn.Name = "loadModelBtn";
-            this.loadModelBtn.Size = new System.Drawing.Size(160, 26);
-            this.loadModelBtn.TabIndex = 1;
-            this.loadModelBtn.Text = "Load Model";
-            this.loadModelBtn.UseVisualStyleBackColor = false;
-            this.loadModelBtn.Click += new System.EventHandler(this.load_model_btn_Click);
-            // 
-            // logo_pb
-            // 
-            this.logo_pb.BackColor = System.Drawing.Color.Transparent;
-            this.logo_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.logo_pb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logo_pb.Image = global::OnlineNeuralNetworkTrainer.Properties.Resources.sample_logo;
-            this.logo_pb.Location = new System.Drawing.Point(0, 0);
-            this.logo_pb.Name = "logo_pb";
-            this.logo_pb.Size = new System.Drawing.Size(170, 65);
-            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo_pb.TabIndex = 0;
-            this.logo_pb.TabStop = false;
-            // 
-            // BGW_Train
-            // 
-            this.BGW_Train.WorkerReportsProgress = true;
-            this.BGW_Train.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_Train_DoWork);
-            this.BGW_Train.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_Train_onProgressChanged);
-            this.BGW_Train.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_Train_onWorkerCompleted);
-            // 
-            // BGW_import_csv
-            // 
-            this.BGW_import_csv.WorkerReportsProgress = true;
-            this.BGW_import_csv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_import_csv_DoWork);
-            this.BGW_import_csv.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_import_csv_onProgressChanged);
-            this.BGW_import_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_import_csv_RunWorkerCompleted);
-            // 
-            // BGW_visualise_data
-            // 
-            this.BGW_visualise_data.WorkerReportsProgress = true;
-            this.BGW_visualise_data.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_visualise_data_DoWork);
-            this.BGW_visualise_data.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_visualise_data_RunWorkerCompleted);
-            // 
-            // BGW_export_csv
-            // 
-            this.BGW_export_csv.WorkerReportsProgress = true;
-            this.BGW_export_csv.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGW_export_csv_DoWork);
-            this.BGW_export_csv.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BGW_export_csv_ProgressChanged);
-            this.BGW_export_csv.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGW_export_csv_RunWorkerCompleted);
+            this.view_structure_btn.BackColor = System.Drawing.Color.DarkRed;
+            this.view_structure_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_structure_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_structure_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.view_structure_btn.Location = new System.Drawing.Point(4, 5);
+            this.view_structure_btn.Name = "view_structure_btn";
+            this.view_structure_btn.Size = new System.Drawing.Size(241, 26);
+            this.view_structure_btn.TabIndex = 3;
+            this.view_structure_btn.Text = "View Model Structure";
+            this.view_structure_btn.UseVisualStyleBackColor = false;
+            this.view_structure_btn.Click += new System.EventHandler(this.view_structure_btn_Click);
             // 
             // MainForm
             // 
@@ -841,11 +870,16 @@
             this.ClientSize = new System.Drawing.Size(670, 439);
             this.Controls.Add(this.main_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "NN Trainer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.main_panel.ResumeLayout(false);
             this.right_panel.ResumeLayout(false);
+            this.console_panel.ResumeLayout(false);
+            this.tab_panel.ResumeLayout(false);
+            this.left_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.mainTablessControl.ResumeLayout(false);
             this.LoadModel.ResumeLayout(false);
             this.AddData.ResumeLayout(false);
@@ -858,8 +892,6 @@
             this.netArchitechGB.ResumeLayout(false);
             this.netArchitechGB.PerformLayout();
             this.trainFuncPanel.ResumeLayout(false);
-            this.left_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -881,7 +913,6 @@
         private System.Windows.Forms.Button ConfigModelBtn;
         private System.Windows.Forms.Button trainModelBtn;
         private System.ComponentModel.BackgroundWorker BGW_Train;
-        private System.Windows.Forms.ProgressBar TrainProgressBar;
         private System.Windows.Forms.Panel trainFuncPanel;
         private System.Windows.Forms.GroupBox trainConfigGB;
         private System.Windows.Forms.GroupBox netArchitechGB;
@@ -927,6 +958,9 @@
         private System.ComponentModel.BackgroundWorker BGW_import_csv;
         private System.ComponentModel.BackgroundWorker BGW_visualise_data;
         private System.ComponentModel.BackgroundWorker BGW_export_csv;
+        private System.Windows.Forms.Panel console_panel;
+        private System.Windows.Forms.Panel tab_panel;
+        private System.Windows.Forms.Button view_structure_btn;
     }
 }
 

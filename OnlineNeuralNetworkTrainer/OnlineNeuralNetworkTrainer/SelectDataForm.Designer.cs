@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.sdf_main_panel = new System.Windows.Forms.Panel();
+            this.sdf_mid_panel = new System.Windows.Forms.Panel();
+            this.sdf_progress_lbl = new System.Windows.Forms.Label();
+            this.sdf_progbar = new System.Windows.Forms.ProgressBar();
             this.sdf_bot_panel = new System.Windows.Forms.Panel();
             this.sdf_cancel_btn = new System.Windows.Forms.Button();
             this.sdf_confirm_btn = new System.Windows.Forms.Button();
             this.sdf_upper_panel = new System.Windows.Forms.Panel();
             this.sdf_selectAll_btn = new System.Windows.Forms.Button();
-            this.sdf_mid_panel = new System.Windows.Forms.Panel();
-            this.sdf_progbar = new System.Windows.Forms.ProgressBar();
-            this.sdf_progress_lbl = new System.Windows.Forms.Label();
             this.BGW_loadDB = new System.ComponentModel.BackgroundWorker();
             this.sdf_main_panel.SuspendLayout();
+            this.sdf_mid_panel.SuspendLayout();
             this.sdf_bot_panel.SuspendLayout();
             this.sdf_upper_panel.SuspendLayout();
-            this.sdf_mid_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sdf_main_panel
@@ -54,6 +54,36 @@
             this.sdf_main_panel.Name = "sdf_main_panel";
             this.sdf_main_panel.Size = new System.Drawing.Size(463, 365);
             this.sdf_main_panel.TabIndex = 0;
+            // 
+            // sdf_mid_panel
+            // 
+            this.sdf_mid_panel.Controls.Add(this.sdf_progress_lbl);
+            this.sdf_mid_panel.Controls.Add(this.sdf_progbar);
+            this.sdf_mid_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sdf_mid_panel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdf_mid_panel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.sdf_mid_panel.Location = new System.Drawing.Point(0, 85);
+            this.sdf_mid_panel.Name = "sdf_mid_panel";
+            this.sdf_mid_panel.Size = new System.Drawing.Size(463, 230);
+            this.sdf_mid_panel.TabIndex = 15;
+            // 
+            // sdf_progress_lbl
+            // 
+            this.sdf_progress_lbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sdf_progress_lbl.Location = new System.Drawing.Point(0, 194);
+            this.sdf_progress_lbl.Name = "sdf_progress_lbl";
+            this.sdf_progress_lbl.Size = new System.Drawing.Size(463, 17);
+            this.sdf_progress_lbl.TabIndex = 5;
+            this.sdf_progress_lbl.Text = "progress: ";
+            this.sdf_progress_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sdf_progbar
+            // 
+            this.sdf_progbar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sdf_progbar.Location = new System.Drawing.Point(0, 211);
+            this.sdf_progbar.Name = "sdf_progbar";
+            this.sdf_progbar.Size = new System.Drawing.Size(463, 19);
+            this.sdf_progbar.TabIndex = 4;
             // 
             // sdf_bot_panel
             // 
@@ -116,36 +146,6 @@
             this.sdf_selectAll_btn.UseVisualStyleBackColor = false;
             this.sdf_selectAll_btn.Click += new System.EventHandler(this.sdf_selectAll_btn_Click);
             // 
-            // sdf_mid_panel
-            // 
-            this.sdf_mid_panel.Controls.Add(this.sdf_progress_lbl);
-            this.sdf_mid_panel.Controls.Add(this.sdf_progbar);
-            this.sdf_mid_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sdf_mid_panel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sdf_mid_panel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.sdf_mid_panel.Location = new System.Drawing.Point(0, 85);
-            this.sdf_mid_panel.Name = "sdf_mid_panel";
-            this.sdf_mid_panel.Size = new System.Drawing.Size(463, 230);
-            this.sdf_mid_panel.TabIndex = 15;
-            // 
-            // sdf_progbar
-            // 
-            this.sdf_progbar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sdf_progbar.Location = new System.Drawing.Point(0, 211);
-            this.sdf_progbar.Name = "sdf_progbar";
-            this.sdf_progbar.Size = new System.Drawing.Size(463, 19);
-            this.sdf_progbar.TabIndex = 4;
-            // 
-            // sdf_progress_lbl
-            // 
-            this.sdf_progress_lbl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sdf_progress_lbl.Location = new System.Drawing.Point(0, 194);
-            this.sdf_progress_lbl.Name = "sdf_progress_lbl";
-            this.sdf_progress_lbl.Size = new System.Drawing.Size(463, 17);
-            this.sdf_progress_lbl.TabIndex = 5;
-            this.sdf_progress_lbl.Text = "progress: ";
-            this.sdf_progress_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BGW_loadDB
             // 
             this.BGW_loadDB.WorkerReportsProgress = true;
@@ -161,12 +161,13 @@
             this.ClientSize = new System.Drawing.Size(463, 365);
             this.Controls.Add(this.sdf_main_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "SelectDataForm";
             this.Text = "Select Data";
             this.sdf_main_panel.ResumeLayout(false);
+            this.sdf_mid_panel.ResumeLayout(false);
             this.sdf_bot_panel.ResumeLayout(false);
             this.sdf_upper_panel.ResumeLayout(false);
-            this.sdf_mid_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -88,6 +88,22 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Graphviz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -112,6 +128,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WPFExtensions, Version=1.0.3437.34043, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFExtensions.1.0.0\lib\WPFExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
       <Private>True</Private>
@@ -119,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseManager.cs" />
+    <Compile Include="DataStructureBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataStructureBrowserForm.Designer.cs">
+      <DependentUpon>DataStructureBrowserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,16 +162,19 @@
     <Compile Include="SelectDataForm.Designer.cs">
       <DependentUpon>SelectDataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpinnerForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="spinner_panel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SpinnerForm.Designer.cs">
-      <DependentUpon>SpinnerForm.cs</DependentUpon>
+    <Compile Include="spinner_panel.Designer.cs">
+      <DependentUpon>spinner_panel.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemManager.cs" />
     <Compile Include="TablessControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="DataStructureBrowserForm.resx">
+      <DependentUpon>DataStructureBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,8 +191,8 @@
     <EmbeddedResource Include="SelectDataForm.resx">
       <DependentUpon>SelectDataForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SpinnerForm.resx">
-      <DependentUpon>SpinnerForm.cs</DependentUpon>
+    <EmbeddedResource Include="spinner_panel.resx">
+      <DependentUpon>spinner_panel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

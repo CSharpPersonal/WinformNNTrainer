@@ -17,8 +17,8 @@ namespace OnlineNeuralNetworkTrainer
     public partial class MainForm : Form
     {
         private Process process;
-        private SpinnerForm sf = new SpinnerForm();
-        private Thread Spinner_th;
+        private spinner_panel sp = new spinner_panel();
+        private DataStructureBrowserForm dsbf;
         private readonly string debugTAG = "[MF]";
         public MainForm()
         {
@@ -38,6 +38,11 @@ namespace OnlineNeuralNetworkTrainer
             this.batchSizeDropMenu.SelectedIndex = 0;
             this.optimFuncDropMenu.SelectedIndex = 0;
             this.lossFuncDropMenu.SelectedIndex = 0;
+            this.tab_panel.Controls.Add(sp);
+            this.dsbf = new DataStructureBrowserForm(this);
+            sp.Dock = DockStyle.Fill;
+            sp.BringToFront();
+            sp.Visible = false;
             string database_file = Path.GetDirectoryName(Application.ExecutablePath) + "\\data\\testdata\\data.db";
             SystemManager.dbm.database_file = database_file;
             SystemManager.dbm.LoadDatabase();
@@ -142,9 +147,8 @@ namespace OnlineNeuralNetworkTrainer
                 processStartInfo.CreateNoWindow = true;
                 process.StartInfo = processStartInfo;
                 ConsoleLabel.Text = "";
-                TrainProgressBar.Value = 0;
-                bool processStarted = process.Start();
                 StartSpinnerThread();
+                bool processStarted = process.Start();
                 this.ConsoleLabel.Text = "Initialising Tensorflow Backend...";
                 BGW_Train.RunWorkerAsync();
             }
@@ -192,7 +196,6 @@ namespace OnlineNeuralNetworkTrainer
 
         private void BGW_Train_onProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            TrainProgressBar.Value = e.ProgressPercentage;
             ConsoleLabel.Text = e.UserState.ToString();
         }
 
@@ -209,24 +212,20 @@ namespace OnlineNeuralNetworkTrainer
         {
             SystemManager.Log(this.debugTAG,"initialising spinner", false);
             left_panel.Enabled = false;
-            this.FormBorderStyle = FormBorderStyle.None;
-            mainTablessControl.Enabled = false;
-            Spinner_th = new Thread(new ThreadStart(delegate
+            if (!this.sp.Visible)
             {
-                sf.Location = new Point(this.Size.Width / 2 + this.Location.X - sf.Size.Width / 2, this.Size.Height / 3 + this.Location.Y - sf.Size.Height / 2);
-                sf.StartPosition = FormStartPosition.Manual;
-                sf.ShowDialog();
-            }));
-            Spinner_th.Start();
+                this.sp.Visible = true;
+            }
         }
 
         private void StopSpinnerThread()
         {
             SystemManager.Log(this.debugTAG,"disabling spinner", false);
-            Spinner_th.Abort();
             left_panel.Enabled = true;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            mainTablessControl.Enabled = true;
+            if (this.sp.Visible)
+            {
+                this.sp.Visible = false;
+            }
         }
 
         private void applyConfigBtn_Click(object sender, EventArgs e)
@@ -385,6 +384,7 @@ namespace OnlineNeuralNetworkTrainer
             SystemManager.Log(this.debugTAG,"on click sql select button", false);
             SelectDataForm sdf = new SelectDataForm(this);
             this.Hide();
+            sdf.StartPosition = FormStartPosition.CenterParent;
             sdf.ShowDialog(this);
         }
 
@@ -513,6 +513,30 @@ namespace OnlineNeuralNetworkTrainer
         private void BGW_export_csv_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ConsoleLabel.Text = e.UserState.ToString();
+        }
+
+        private void view_structure_btn_Click(object sender, EventArgs e)
+        {
+            SystemManager.Log(this.debugTAG, "on click view structure button", false);
+            if (this.dsbf.Visible == true)
+            {
+                this.dsbf.Hide();
+                this.view_structure_btn.Text = "View Model Structure";
+            }
+            else
+            {
+                this.dsbf.Location = new Point(this.Left + this.Width, this.Top);
+                this.dsbf.StartPosition = FormStartPosition.Manual;
+                this.dsbf.Show();
+                this.view_structure_btn.Text = "Close View Model Window";
+            }
+        }
+
+        public void CallBackOnDSBFClosed()
+        {
+            SystemManager.Log(this.debugTAG, "on data structure browser closed", false);
+            this.dsbf = new DataStructureBrowserForm(this);
+            this.view_structure_btn.Text = "View Model Structure";
         }
     }
 }

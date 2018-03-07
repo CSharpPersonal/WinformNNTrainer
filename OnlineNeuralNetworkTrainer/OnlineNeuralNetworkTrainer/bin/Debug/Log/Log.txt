@@ -1,0 +1,162 @@
+[5/03/2018 2:52:53 PM][KM]Keras model initialising
+[5/03/2018 2:52:53 PM][MF]MainFormInitialise called
+[5/03/2018 2:52:57 PM][MF]on click input data button
+[5/03/2018 2:52:58 PM][MF]on click configure model button
+[5/03/2018 2:53:31 PM][KM]Keras model initialising
+[5/03/2018 2:53:31 PM][MF]MainFormInitialise called
+[5/03/2018 3:07:20 PM][KM]Keras model initialising
+[5/03/2018 3:07:20 PM][MF]MainFormInitialise called
+[5/03/2018 3:07:45 PM][KM]Keras model initialising
+[5/03/2018 3:07:45 PM][MF]MainFormInitialise called
+[5/03/2018 3:08:53 PM][KM]Keras model initialising
+[5/03/2018 3:08:53 PM][MF]MainFormInitialise called
+[5/03/2018 3:10:36 PM][KM]Keras model initialising
+[5/03/2018 3:10:36 PM][MF]MainFormInitialise called
+[5/03/2018 3:10:38 PM][MF]on click input data button
+[5/03/2018 3:10:43 PM][MF]on click configure model button
+[5/03/2018 3:10:51 PM][MF]on click apply num neurons button
+[5/03/2018 3:10:53 PM][MF]on click apply num neurons button
+[5/03/2018 3:10:55 PM][MF]on click apply all settings button
+[5/03/2018 3:10:55 PM][KM]checking if model is ready to train
+[5/03/2018 3:10:55 PM][MF]model ready for training
+[5/03/2018 3:10:55 PM][KM]getting model summary
+[5/03/2018 3:10:56 PM][MF]on click train model button
+[5/03/2018 3:10:56 PM][KM]exporting config
+[5/03/2018 3:10:56 PM][MF]try start training
+[5/03/2018 3:10:56 PM][MF]initialising spinner
+[5/03/2018 3:13:26 PM][KM]Keras model initialising
+[5/03/2018 3:13:26 PM][MF]MainFormInitialise called
+[5/03/2018 3:15:28 PM][KM]Keras model initialising
+[5/03/2018 3:15:28 PM][MF]MainFormInitialise called
+[5/03/2018 3:15:31 PM][MF]on click select history model button
+[5/03/2018 3:15:34 PM][MF]on clik visulise data button
+[5/03/2018 3:15:34 PM][MF]no model is loaded
+[5/03/2018 3:15:36 PM][MF]on click load model button
+[5/03/2018 3:15:37 PM][MF]on click input data button
+[5/03/2018 3:15:40 PM][MF]on click save data button
+[5/03/2018 3:15:40 PM] ERROR occured: [MF]save data failed, exception: Input string was not in a correct format.
+[5/03/2018 3:15:41 PM][MF]on click predict button
+[5/03/2018 3:15:41 PM] ERROR occured: [MF]Predict failed, exception: Input string was not in a correct format.
+[5/03/2018 3:15:43 PM][MF]on click sql select button
+[5/03/2018 3:15:43 PM][SDF]initialising SDF
+[5/03/2018 3:15:46 PM][SDF]on click sdf cancel button
+[5/03/2018 3:15:46 PM][SDF]sdf dismissing
+[5/03/2018 3:15:46 PM][MF]call back on sdf selected data
+[5/03/2018 3:15:46 PM][MF]canceled
+[5/03/2018 3:15:47 PM][MF]on click configure model button
+[5/03/2018 3:15:54 PM][MF]on click apply num neurons button
+[5/03/2018 3:15:57 PM][MF]on click apply num neurons button
+[5/03/2018 3:16:04 PM][MF]on click apply all settings button
+[5/03/2018 3:16:04 PM][KM]checking if model is ready to train
+[5/03/2018 3:16:04 PM][MF]model ready for training
+[5/03/2018 3:16:04 PM][KM]getting model summary
+[5/03/2018 3:16:06 PM][MF]on click train model button
+[5/03/2018 3:16:06 PM][KM]exporting config
+[5/03/2018 3:16:06 PM][MF]try start training
+[5/03/2018 3:16:06 PM][MF]initialising spinner
+[5/03/2018 3:17:02 PM][MF]model training process completed
+[5/03/2018 3:17:02 PM][MF]disabling spinner
+[5/03/2018 3:19:31 PM][MF]on click train model button
+[5/03/2018 3:19:31 PM][KM]exporting config
+[5/03/2018 3:19:31 PM][MF]try start training
+[5/03/2018 3:19:31 PM][MF]initialising spinner
+[5/03/2018 3:20:27 PM][MF]model training process completed
+[5/03/2018 3:20:27 PM][MF]disabling spinner
+[5/03/2018 3:21:17 PM][MF]on click train model button
+[5/03/2018 3:21:17 PM][KM]exporting config
+[5/03/2018 3:21:17 PM][MF]try start training
+[5/03/2018 3:21:17 PM][MF]initialising spinner
+[5/03/2018 3:27:03 PM][KM]Keras model initialising
+[5/03/2018 3:27:03 PM][MF]MainFormInitialise called
+[5/03/2018 3:27:06 PM][MF]on click input data button
+[5/03/2018 3:27:08 PM][MF]on click configure model button
+[5/03/2018 3:27:09 PM][MF]on click input data button
+[5/03/2018 3:27:41 PM][MF]on click configure model button
+[5/03/2018 3:27:45 PM][MF]on click input data button
+[5/03/2018 3:27:46 PM][MF]on click load model button
+[5/03/2018 3:27:46 PM][MF]on click input data button
+[5/03/2018 3:27:47 PM][MF]on click configure model button
+[5/03/2018 3:28:31 PM][MF]on click input data button
+[5/03/2018 3:28:47 PM][MF]on click load model button
+[5/03/2018 3:28:50 PM][MF]on click configure model button
+[5/03/2018 3:29:00 PM][MF]on click configure model button
+[5/03/2018 3:29:01 PM][MF]on click input data button
+[5/03/2018 3:29:02 PM][MF]on click load model button
+[5/03/2018 3:29:04 PM][MF]on click input data button
+[5/03/2018 3:29:06 PM][MF]on click load model button
+[5/03/2018 3:29:07 PM][MF]on click input data button
+[5/03/2018 3:29:13 PM][MF]on click configure model button
+[5/03/2018 3:30:32 PM][KM]Keras model initialising
+[5/03/2018 3:30:32 PM][MF]MainFormInitialise called
+[5/03/2018 3:30:45 PM][MF]on click input data button
+[5/03/2018 3:30:46 PM][MF]on click sql select button
+[5/03/2018 3:30:46 PM][SDF]initialising SDF
+[5/03/2018 3:30:52 PM][SDF]on click sdf cancel button
+[5/03/2018 3:30:52 PM][SDF]sdf dismissing
+[5/03/2018 3:30:52 PM][MF]call back on sdf selected data
+[5/03/2018 3:30:52 PM][MF]canceled
+[5/03/2018 3:30:56 PM][MF]on click configure model button
+[5/03/2018 3:31:05 PM][MF]on click input data button
+[5/03/2018 3:31:06 PM][MF]on click sql select button
+[5/03/2018 3:31:06 PM][SDF]initialising SDF
+[5/03/2018 3:31:43 PM][KM]Keras model initialising
+[5/03/2018 3:31:43 PM][MF]MainFormInitialise called
+[5/03/2018 3:31:44 PM][MF]on click input data button
+[5/03/2018 3:31:45 PM][MF]on click sql select button
+[5/03/2018 3:31:45 PM][SDF]initialising SDF
+[5/03/2018 3:31:46 PM][SDF]on click sdf cancel button
+[5/03/2018 3:31:46 PM][SDF]sdf dismissing
+[5/03/2018 3:31:46 PM][MF]call back on sdf selected data
+[5/03/2018 3:31:46 PM][MF]canceled
+[5/03/2018 3:31:48 PM][MF]on click sql select button
+[5/03/2018 3:31:48 PM][SDF]initialising SDF
+[5/03/2018 3:31:50 PM][SDF]on click sdf cancel button
+[5/03/2018 3:31:50 PM][SDF]sdf dismissing
+[5/03/2018 3:31:50 PM][MF]call back on sdf selected data
+[5/03/2018 3:31:50 PM][MF]canceled
+[5/03/2018 3:41:35 PM][KM]Keras model initialising
+[5/03/2018 3:41:35 PM][MF]MainFormInitialise called
+[5/03/2018 4:18:35 PM][KM]Keras model initialising
+[5/03/2018 4:18:35 PM][MF]MainFormInitialise called
+[5/03/2018 4:18:37 PM][MF]on click input data button
+[5/03/2018 4:18:38 PM][MF]on click configure model button
+[5/03/2018 4:18:40 PM][MF]on click view structure button
+[5/03/2018 4:18:43 PM][MF]on click view structure button
+[5/03/2018 4:18:44 PM][MF]on click view structure button
+[5/03/2018 4:18:48 PM][MF]on click view structure button
+[5/03/2018 4:20:22 PM][KM]Keras model initialising
+[5/03/2018 4:20:22 PM][MF]MainFormInitialise called
+[5/03/2018 4:20:24 PM][MF]on click input data button
+[5/03/2018 4:20:25 PM][MF]on click configure model button
+[5/03/2018 4:20:26 PM][MF]on click view structure button
+[5/03/2018 4:24:09 PM][KM]Keras model initialising
+[5/03/2018 4:24:09 PM][MF]MainFormInitialise called
+[5/03/2018 4:24:11 PM][MF]on click configure model button
+[5/03/2018 4:24:11 PM][MF]on click view structure button
+[5/03/2018 4:24:22 PM][MF]on click view structure button
+[5/03/2018 4:30:24 PM][KM]Keras model initialising
+[5/03/2018 4:30:24 PM][MF]MainFormInitialise called
+[5/03/2018 4:30:26 PM][MF]on click configure model button
+[5/03/2018 4:30:26 PM][MF]on click view structure button
+[5/03/2018 4:30:27 PM][MF]on click view structure button
+[5/03/2018 4:30:27 PM][MF]on click view structure button
+[5/03/2018 4:30:28 PM][MF]on click view structure button
+[5/03/2018 4:30:28 PM][MF]on click view structure button
+[5/03/2018 4:30:29 PM][MF]on click view structure button
+[5/03/2018 4:30:30 PM][MF]on click view structure button
+[5/03/2018 4:30:32 PM][MF]on click view structure button
+[5/03/2018 4:41:22 PM][KM]Keras model initialising
+[5/03/2018 4:41:22 PM][MF]MainFormInitialise called
+[5/03/2018 4:41:24 PM][MF]on click configure model button
+[5/03/2018 4:41:24 PM][MF]on click view structure button
+[5/03/2018 4:41:26 PM][MF]on data structure browser closed
+[5/03/2018 4:41:27 PM][MF]on click view structure button
+[5/03/2018 4:41:29 PM][MF]on click view structure button
+[5/03/2018 4:41:30 PM][MF]on click view structure button
+[5/03/2018 4:41:32 PM][MF]on data structure browser closed
+[5/03/2018 4:49:42 PM][KM]Keras model initialising
+[5/03/2018 4:49:42 PM][MF]MainFormInitialise called
+[5/03/2018 4:51:12 PM][KM]Keras model initialising
+[5/03/2018 4:51:12 PM][MF]MainFormInitialise called
+[5/03/2018 4:51:14 PM][MF]on click configure model button
+[5/03/2018 4:51:14 PM][MF]on click view structure button

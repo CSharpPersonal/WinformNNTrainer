@@ -16,7 +16,6 @@ namespace OnlineNeuralNetworkTrainer
         private readonly string debugTAG = "[SDF]";
         private MainForm entryForm;
         private Thread Spinner_th;
-        private SpinnerForm sf = new SpinnerForm();
         public SelectDataForm(MainForm entryForm)
         {
             SystemManager.Log(this.debugTAG, "initialising SDF", false);
